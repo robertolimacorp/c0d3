@@ -37,13 +37,8 @@ echo -e ${NC}${YELLOW}""
 echo  -e "========== ...Iniciando configuracao do sistema ... ================="
 uname -a >> $LOG
 echo -e "----------------------------------------------------------------------" >>$LOG
-#Configurar teclado ABNT2
-setxkbmap -model abnt2 -layout br 
-echo "Teclado configurando ABNT2" $OK >> $LOG
-#Exportar timezone 
-echo "Timezone America Sao Paulo" $OK >> $LOG
-export TZ=America/Sao_Paulo
-#atualizar o sistema
+
+#Atualizar o sistema
 echo "Deseja atualizar o sistema Update e Upgrade? Sim ou Não [S/n]"
 read RESP
 if [ "$RESP" == "S" ]; then
@@ -52,6 +47,20 @@ apt-get install update && apt-get install upgrade -y
 else 
 echo "Atualizacao cancelada pelo usuario" $FAIL >> $LOG
 fi
+#Configurar teclado ABNT2
+echo "Teclado configurando ABNT2" $OK >> $LOG
+setxkbmap -model abnt2 -layout br 
+
+#Exportar timezone 
+echo "Timezone America Sao Paulo" $OK >> $LOG
+timedatectl set-timezone America/Sao_Paulo
+export TZ=America/Sao_Paulo
+
+#instalar NTP
+echo "Instalar NTP" $OK >> $LOG
+apt-get install ntp
+apt-get install ntpdate
+ntpdate pool.ntp.br
 
 #instalar terminator
 cat /usr/bin/terminator | head -n 3 > $OFF
@@ -61,6 +70,7 @@ else
 echo "Instalando terminator no sistema" $FAIL >> $LOG
 apt-get install terminator -y
 fi
+
 #Proxychains 
 cat /etc/proxychains* | head -n 3 >> $OFF
 if [ "$?" == "0" ] ;then 
@@ -71,6 +81,7 @@ echo "Instalando Proxychais no sistema" $FAIL >> $LOG
 apt-get install proxychains -y
 echo "Proxychains instalado no sistema" $OK >> $LOG
 fi
+
 #Configurar proxychains 
 echo "Configurando Proxychains no sistema" $OK >> $LOG
 cat /etc/proxychains.conf |sed -i 's/\#dynamic_chain/dynamic_chain/' /etc/proxychains.conf
@@ -84,13 +95,15 @@ echo " Inserindo Socks5 no proxychains" $OK >> $LOG
 cat /etc/proxychains.conf |sed -i 's/socks4/#socks4/' /etc/proxychains.conf >> $OFF
 echo "socks5 127.0.0.1 9050" >> /etc/proxychains.conf	
 fi
+
+#Valida diretorio tor
 echo "Verifica servico tor" 
 file /etc/tor > $OFF
 if [ "$?" == "0" ] ;then 
 echo "Tor encontrado no sistema" $OK >> $LOG
 service tor start
 else
-echo "Instalando Tor no sistema" $OK >> $LOG
+echo "Instalando Tor no sistema"
 apt-get install tor -y
 echo "Servico Tor iniciado no sistema" $OK >> $LOG
 service tor start
@@ -109,6 +122,7 @@ rm -f tor-browser-linux64-9.0_en-US.tar.xz
 mv tor-browser_en-US/ tor-browser/
 echo "Tor Browser instalado com sucesso" $OK >> $LOG
 fi
+
 #instalação de tools
 clear
 echo "Instalando Arsenal no sistema" $OK >> $LOG
@@ -173,6 +187,7 @@ echo "payloads no diretorio do sistema (/opt/payloads)" $OK >> $LOG
 else
 echo "erro nos payloads do sistema" $FAIL >> $LOG
 fi
+
 #Pentest Mobile
 echo  "--->MobSF - Mobile" $OK >> $LOG
 git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
@@ -180,13 +195,14 @@ clear
 echo "Instalacao do Arsenal ok"
 echo "Iniciando Hardening do sistema" $OK >> $LOG
 echo -e "----------------------------------------------------------------------" >>$LOG
+
 #instalar rkhunter e efetuar a primeira checagem
 cat /etc/rkhunter* |head -n 3 >> $OFF
 if [ "$?" == "0" ]; then 
 echo "rkhunter encontrado no sistema" $OK >> $LOG
-#rkhunter --update
-#rkhunter --propupd
-#rkhunter --check --skip-keypress --report-warnings-only
+rkhunter --update
+rkhunter --propupd
+rkhunter --check --skip-keypress --report-warnings-only
 else 
 echo "Rkhunter nao encontrado" $FAIL >> $LOG
 echo "Instalando rkhunter no sistema e efetuando checagem" $OK >> $LOG
@@ -196,22 +212,26 @@ rkhunter --propupd
 rkhunter --check --skip-keypress --report-warnings-only
 echo "Rkhunter instalado com sucesso" $OK >> $LOG
 fi
+
 #instalar fail2ban
 echo "instalar fail2ban" $OK >> $LOG
 apt-get install fail2ban -y
 echo "Efetuando backup do arquivo sysctl.conf"
 cp /etc/sysctl.conf /etc/sysctl.conf.bkp.$DATA
+
 #Desabilita Ipv6 Temporario 
 echo "Desabilitar Ipv6 temporariamente" $OK >> $LOG
 sysctl -w net.ipv6.conf.all.disable_ipv6=1
 sysctl -w net.ipv6.conf.default.disable_ipv6=1
 sysctl -w net.ipv6.conf.lo.disable_ipv6=1
-#desabilitar Ipv6 permanente descomente as linhas a seguir;
+
+#Desabilitar Ipv6 permanente descomente as linhas a seguir;
 #echo "Desabilitar Ipv6 Permanente" $OK >> $LOG
 #echo "net.ipv6.conf.all.disable_ipv6=1" >> /etc/sysctl.conf
 #echo "net.ipv6.conf.default.disable_ipv6=1" >> /etc/sysctl.conf
 #echo "net.ipv6.conf.lo.disable_ipv6=1" >> /etc/sysctl.conf
 #sysctl -p
+
 echo "Seguranca do Kernel"  $OK >> $LOG
 echo "Configuracao /etc/sysctl.conf" $OK >> $LOG
 echo "#=============Nova Configuracao sysctl.conf=============" > /etc/sysctl.conf 
