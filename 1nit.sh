@@ -32,6 +32,7 @@ if [ "$EUID" -ne 0 ]
 	then echo " Favor executar como root " $FAIL >> $LOG
 	exit
 fi
+
 clear
 echo -e ${NC}${YELLOW}""
 echo  -e "========== ...Iniciando configuracao do sistema ... ================="
@@ -417,7 +418,3 @@ echo " Sistema pronto para utilizacao!!!"
 echo -e "======================================================================" >>$LOG
 echo "Fim da instalacao dos utiliarios do sistema" $OK >> $LOG
 fi
-echo -e ${NC}${YELLOW}""
-echo -e "========================================================"
-echo -e "             HAPPY HACKING - GO TO OWNED!!!             "
-echo -e "========================================================"

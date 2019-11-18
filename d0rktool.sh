@@ -12,6 +12,21 @@
 ###############################################################################
 #set -x       #Descommentar essa linha para ver em modo debug o script
 ###############################################################################
+#Verificar se o Script esta sendo executado como Root
+if [ "$EUID" -ne 0 ] 
+	then echo " Favor executar como root "
+	exit
+fi
+
+echo "Verifica Proxychains"
+cat wc -l /etc/proxychains.conf
+if [ "$?" == "0" ] ;then
+echo "Proxychains encontrado no sistema"
+else
+echo "Instalando Proxychains no sistema"
+apt-get install proxychains -y
+fi
+
 #Configurar proxychains 
 echo "Configurando Proxychains no sistema"
 cp /etc/proxychains.conf /etc/proxychains.conf.bkp
@@ -26,7 +41,7 @@ echo " Inserindo Socks5 no proxychains"
 cat /etc/proxychains.conf |sed -i 's/socks4/#socks4/' /etc/proxychains.conf >> /dev/null
 echo "socks5 127.0.0.1 9050" >> /etc/proxychains.conf
 fi
-echo "Verifica servico tor"
+echo "Verifica service tor"
 file /etc/tor > /dev/null
 if [ "$?" == "0" ] ;then
 echo "Tor encontrado no sistema"
@@ -34,7 +49,7 @@ service tor start
 else
 echo "Instalando Tor no sistema"
 apt-get install tor -y
-echo "Servico Tor iniciado no sistema"
+echo "Service Tor iniciado no sistema"
 service tor start
 fi
 echo "Iniciando Firefox para coleta de informacoes"
