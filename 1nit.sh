@@ -341,25 +341,66 @@ echo "# Protege contra criacao ou seguir links " >> $SYS
 echo "fs.protected_hardlinks=1 " >> $SYS
 echo "fs.protected_symlinks=1" >> $SYS
 
+#Alterar o arquivo /etc/login.defs para conter: PASS_MAX_DAYS 30
+sed -i 's/PASS_MAX_DAYS.*/PASS_MAX_DAYS 30/g' /etc/login.defs 
+
+#"Alterar o arquivo /etc/login.defs para conter: PASS_MIN_DAYS
+sed -i 's/PASS_MIN_DAYS.*/PASS_MIN_DAYS 2/g' /etc/login.defs
+
+echo "comado sed -i 's/PASS_WARN_AGE 7/PASS_WARN_AGE 3/' /etc/login.defs"
+sed -i 's/PASS_WARN_AGE 7/PASS_WARN_AGE 7/g' /etc/login.defs
+
+echo '#definindo o umask para 077'
+sed -i 's/022/077/' /etc/login.defs
+
+
 #Alterar arquivo sshd_config (/etc/ssh/sshd_config)
+echo '#set permissions on /etc/ssh/sshd_config'
+chown root:root /etc/ssh/sshd_config
+chmod 600 /etc/ssh/sshd_config
+
+## Alterando Banner
+echo '#Alterando o Banner do ssh ' $OK >> $LOG 
+echo 'SSH - ACESSO RESTRITO' >> /etc/ssh/banner_editado
+sed -i 's/#Banner/Banner/' /etc/ssh/sshd_config
+
+#permissoes para crontab
+echo "Modificando Permissoes cron" $OK >> $LOG
+chown root:root /etc/crontab
+chmod og-rwx /etc/crontab
+chown root:root /etc/cron.hourly
+chmod og-rwx /etc/cron.hourly/*
+chown root:root /etc/cron.daily
+chmod og-rwx /etc/cron.daily/*
+chown root:root /etc/cron.weekly
+chmod og-rwx /etc/cron.weekly/*
+chown root:root /etc/cron.monthly
+chmod og-rwx /etc/cron.monthly/*
+chown root:root /etc/cron.d
+chmod og-rwx /etc/cron.d/*
+
 echo "Alterando configuracoes do arquivo sshd_config" $OK >> $LOG
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bkp$DATA
 echo "backup do arquivo sshd_config efetuado com sucesso" $OK >> $LOG
 echo "alterando porta padrao ssh para 2220" $OK >> $LOG
 #cat /etc/ssh/sshd_config |sed -i 's/Port 22/Port 2220/' /etc/ssh/sshd_config
-cat /etc/ssh/sshd_config |sed -i 's/\#IgnoreRhosts yes/IgnoreRhosts yes/' /etc/ssh/sshd_config
-cat /etc/ssh/sshd_config |sed -i 's/\#PermitEmptyPasswords no/PermitEmptyPasswords no/' /etc/ssh/sshd_config 
-cat /etc/ssh/sshd_config |sed -i 's/\#MaxAuthTries*/MaxAuthTries 5/'/etc/ssh/sshd_config
+sed -i 's/\#IgnoreRhosts yes/IgnoreRhosts yes/' /etc/ssh/sshd_config
+sed -i 's/\#PermitEmptyPasswords no/PermitEmptyPasswords no/' /etc/ssh/sshd_config 
+sed -i 's/\#MaxAuthTries*/MaxAuthTries 5/'/etc/ssh/sshd_config
 #cat /etc/ssh/sshd_config |sed -i 's/\#PermitRootLogin yes/PermitRootLogin no/'/etc/ssh/sshd_config
 #cat /etc/ssh/sshd_config sed -i 's/\#PubkeyAuthentication yes/PubkeyAuthentication no/'/etc/ssh/sshd_config
-cat /etc/ssh/sshd_config |sed -i 's/X11Forwarding yes/X11Forwarding no/sshd_config'/etc/ssh/sshd_config
+sed -i 's/X11Forwarding yes/X11Forwarding no/sshd_config'/etc/ssh/sshd_config
 
 echo "alterar arquivo ssh_config" 
 cp /etc/ssh/ssh_config /etc/ssh/ssh_config.bkp$DATA
+
 echo "efetuando backup arquivo ssh_config"
-cat /etc/ssh/ssh_config |sed -i 's/   HashKnownHosts*|HashKnownHosts yes/' /etc/ssh/ssh_config
-cat /etc/ssh/ssh_config |sed -i 's/\#   ForwardX11 no/ForwardX11 no/' /etc/ssh/ssh_config
-cat /etc/ssh/ssh_config |sed -i 's/\#   Port 22/Port 22/' /etc/ssh/ssh_config
+sed -i 's/   HashKnownHosts*|HashKnownHosts yes/' /etc/ssh/ssh_config
+sed -i 's/\#   ForwardX11 no/ForwardX11 no/' /etc/ssh/ssh_config
+sed -i 's/\#   Port 22/Port 2220/' /etc/ssh/ssh_config
+
+echo "Autorizando cifras fortes SSH aes128-ctr,aes192-ctr,aes256-ctr..." $OK >> $LOG
+sed -i 's/\#   Ciphers/Ciphers/' /etc/ssh/ssh_config
 
 echo "Alterar permissao no diretorio /boot (600)" $OK >> $LOG
 #Padrao 644 nos arquivos e 755 no grub
