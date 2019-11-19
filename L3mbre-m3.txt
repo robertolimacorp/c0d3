@@ -1,0 +1,185 @@
+===============================================
+Esse é um guia de visualização rápida de base;
+comandos, permissões, parametros, tricks, etc
+===============================================
+
+Sumario
+	00 - Tricks
+	01 - Linux
+	02 - DNS 
+	03 - Redes
+
+============
+#00 TRICKS
+============
+Servidor HTTP 
+	Python2.x
+		python -m SimpleHTTPServer 8080
+	Python3.x
+		python -m http.server 8080
+Outra opção é utilizar o servidor em python com a opção de upload de arquivo, a ferramenta é SimpleHTTPServerWithUpload.py
+
+
+Encode Base 64
+	echo 'Hello' | base64 
+Decode Base 64
+	echo 'SGVsbwo=' | base64 -d
+
+Verificar Seu ip externo
+	curl -4 icanhazip.com
+	wget -qO- ifconfig.me/ip
+
+
+
+============
+#01 LINUX
+============
+
+Lembrete de Permissões Linux;
+
+	——		000
+	rwx-w—w-	722
+	r-xr—r–		544
+	rw-r—r–		644
+	rwxr-xr-x	755
+	rw——-		600
+	rw—w—w-		622
+	rwxrwxrwx	777
+
+REF:http://www.guiafoca.org/cgs/guia/iniciante/ch-perm.html
+
+#Pra ver portas abertas
+	netstat -ntlp 
+
+#Visualizar logs
+	/var/log/
+
+#localizando arquivos;
+	locate access.log
+	locate sshd_config
+
+#Para atualizar a base do sistema
+	updatedb
+	whereis nmap
+	whereis nc
+	which nmap 
+
+
+IMPRIMIR UMA LISTA DE SERVIÇOS QUE LISTA QUAIS NÍVEIS DE EXECUÇÃO ESTÃO CONFIGURADOS, ATIVADOS OU DESATIVADOS
+# systemctl list-unit-files --type=service
+# systemctl list-dependencies graphical.target
+
+DESATIVAR SERVIÇO NO MOMENTO DA INICIALIZAÇÃO
+# systemctl disable service
+# systemctl disable httpd.service
+
+
+============
+#02 DNS 
+============
+Tipos de Registros
+
+	A		= Ipv4
+	AAAA		= Ipv6
+	CNAME		= Alias
+	HINFO		= Host Information
+	MX		= Mail
+	NS		= Name Server
+	PTR		= Zona Reversa (Mapeia IP para nome)
+	SOA 		= Registro Principal
+	
+============
+#03 REDES
+============
+Exemplo de algumas padrões 
+	80 http -tcp
+	443 https-tcp
+	25 smtp- tcp
+	161 snmp -udp
+	23 telnet tcp
+	21 ftp -tcp
+	22 ssh tcp
+
+#Portas;
+	portas vão de 0 a 65535 normalmente são usadas com protocolo TCP e UDP
+
+
+Estrutura do protocolo TCP
+
+Flags reservadas do protocolo;
+
+	URG ACK PSH RST SYN FIN
+
+	SYN indica sincronizar, ou melhor, iniciar uma conexão entre os lados envolvidos 
+	FIN indica finalizar ou seja a conexão deve ser fechada
+	RST indica resetar ou melhor quando a comunicação não é entendida ou ocorreu algum erro
+	PSH indica que existem dados no payload
+	ACK faz a confirmação indicando que sabe qual será o próximo número de sequencia
+	URG indica urgente ou seja o conteúdo deve ser priorizado 
+
+#3WHS - Three way handshake
+	Tcp é orientado a conexão e acontece da seguinte maneira;
+		SYN - SYN / ACK - ACK
+
+#Encerrando a conexão 
+
+	Quando os hosts encerram a conexão eles enviam a flag FIN, ACK
+
+#Problema na conexão
+
+		A flag enviada será a RST , ACK
+
+Geralmente acontece quando uma porta não está ativa 
+
+#Payload
+		payload contém dados a serem transportados (outro protocolo) o tamanho máximo do payload ethernet é de 1500 bytes.
+
+
+
+
+
+#T00ls
+Curl + User agent 
+
+Mozilla/[version] ([system and browser information]) [platform] ([platform details]) [extensions]. For example, Safari on the iPad has used the following:
+
+Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405
+
+Mais utilizado atualmente;(Chrome)
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36
+
+
+https://tools.ietf.org/html/rfc7231#section-5.5.3
+https://tools.ietf.org/html/rfc1945#page-46
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

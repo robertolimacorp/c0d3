@@ -140,6 +140,8 @@ echo "--->Sn1per" $OK >> $LOG
 git clone https://github.com/1N3/Sn1per.git
 echo "--->Dnsrebind Toolkit" $OK >> $LOG
 git clone https://github.com/brannondorsey/dns-rebind-toolkit.git
+echo "--->SimpleHTTPServerWithUpload.py " $OK >> $LOG
+wget https://gist.githubusercontent.com/touilleMan/eb02ea40b93e52604938/raw/8765e34ffe1a981b7d7911bdc17380bb85356f39/SimpleHTTPServerWithUpload.py
 echo "--->OWASP - Amass" $OK >> $LOG
 git clone https://github.com/OWASP/Amass.git
 echo "--->Aquatone" $OK >> $LOG
@@ -164,7 +166,12 @@ echo "--->Mimikatz" $OK >> $LOG
 git clone https://github.com/gentilkiwi/mimikatz.git
 echo "--->Diretorio de payloads (/opt/payloads) " $OK >> $LOG
 mkdir -p /opt/payloads
-echo "--->Download de payloads" $OK >> $LOG
+echo "--->Download Od1n Payloads" $OK >> $LOG
+wc -l /opt/payloads/dir_brute.txt js_inject.txt shubs-stackoverflow.txt ldap_injection.txt list.txt passive_sqli.txt password_brute.txt path_traversal.txt path_traversal_win32.txt proxy_list.txt sqli.txt xpath_injection.txt xss.txt xss_robertux.txt
+if [ "$?" != "0" ]; then 
+echo "payloads encontrados no sistema" $OK >> $LOG
+else
+echo "Inserindo payloads no sistema" $OK >> $LOG
 wget https://github.com/CoolerVoid/0d1n/blob/master/payloads/dir_brute.txt
 wget https://github.com/CoolerVoid/0d1n/blob/master/payloads/js_inject.txt
 wget https://github.com/CoolerVoid/0d1n/blob/master/payloads/ldap_injection.txt
@@ -181,12 +188,6 @@ wget https://github.com/CoolerVoid/0d1n/blob/master/payloads/xss_robertux.txt
 wget https://github.com/danielmiessler/SecLists/blob/master/Discovery/DNS/shubs-stackoverflow.txt
 mv /opt/*.txt /opt/payloads
 ls /opt/payloads/ |cut -d: -f2 >> $LOG
-echo "--->Od1n Payloads" $OK >> $LOG
-wc -l /opt/payloads/dir_brute.txt js_inject.txt shubs-stackoverflow.txt ldap_injection.txt list.txt passive_sqli.txt password_brute.txt path_traversal.txt path_traversal_win32.txt proxy_list.txt sqli.txt xpath_injection.txt xss.txt xss_robertux.txt
-if [ "$?" == "0" ] ;then 
-echo "payloads no diretorio do sistema (/opt/payloads)" $OK >> $LOG
-else
-echo "erro nos payloads do sistema" $FAIL >> $LOG
 fi
 
 #Pentest Mobile
@@ -196,8 +197,7 @@ clear
 echo "Instalacao do Arsenal ok"
 echo "Iniciando Hardening do sistema" $OK >> $LOG
 echo -e "----------------------------------------------------------------------" >>$LOG
-
-#instalar rkhunter e efetuar a primeira checagem
+#instalar rkhunter e efetuar checagem
 cat /etc/rkhunter* |head -n 3 >> $OFF
 if [ "$?" == "0" ]; then 
 echo "rkhunter encontrado no sistema" $OK >> $LOG
@@ -341,18 +341,11 @@ echo "# Protege contra criacao ou seguir links " >> $SYS
 echo "fs.protected_hardlinks=1 " >> $SYS
 echo "fs.protected_symlinks=1" >> $SYS
 
-#Alterar o arquivo /etc/login.defs para conter: PASS_MAX_DAYS 30
+echo "Alterando o arquivo /etc/login.defs" $OK >> $LOG
 sed -i 's/PASS_MAX_DAYS.*/PASS_MAX_DAYS 30/g' /etc/login.defs 
-
-#"Alterar o arquivo /etc/login.defs para conter: PASS_MIN_DAYS
 sed -i 's/PASS_MIN_DAYS.*/PASS_MIN_DAYS 2/g' /etc/login.defs
-
-echo "comado sed -i 's/PASS_WARN_AGE 7/PASS_WARN_AGE 3/' /etc/login.defs"
 sed -i 's/PASS_WARN_AGE 7/PASS_WARN_AGE 7/g' /etc/login.defs
-
-echo '#definindo o umask para 077'
 sed -i 's/022/077/' /etc/login.defs
-
 
 #Alterar arquivo sshd_config (/etc/ssh/sshd_config)
 echo '#set permissions on /etc/ssh/sshd_config'
@@ -360,9 +353,9 @@ chown root:root /etc/ssh/sshd_config
 chmod 600 /etc/ssh/sshd_config
 
 ## Alterando Banner
-echo '#Alterando o Banner do ssh ' $OK >> $LOG 
-echo 'SSH - ACESSO RESTRITO' >> /etc/ssh/banner_editado
-sed -i 's/#Banner/Banner/' /etc/ssh/sshd_config
+echo 'Alterando o Banner SSH ' $OK >> $LOG 
+echo 'SSH - ACESSO RESTRITO' > /etc/ssh/banner_editado
+sed -i 's/#Banner.*/Banner \/etc\/ssh\/banner_editado/' /etc/ssh/sshd_config
 
 #permissoes para crontab
 echo "Modificando Permissoes cron" $OK >> $LOG
@@ -387,20 +380,19 @@ echo "alterando porta padrao ssh para 2220" $OK >> $LOG
 sed -i 's/\#IgnoreRhosts yes/IgnoreRhosts yes/' /etc/ssh/sshd_config
 sed -i 's/\#PermitEmptyPasswords no/PermitEmptyPasswords no/' /etc/ssh/sshd_config 
 sed -i 's/\#MaxAuthTries*/MaxAuthTries 5/'/etc/ssh/sshd_config
-#cat /etc/ssh/sshd_config |sed -i 's/\#PermitRootLogin yes/PermitRootLogin no/'/etc/ssh/sshd_config
-#cat /etc/ssh/sshd_config sed -i 's/\#PubkeyAuthentication yes/PubkeyAuthentication no/'/etc/ssh/sshd_config
-sed -i 's/X11Forwarding yes/X11Forwarding no/sshd_config'/etc/ssh/sshd_config
+#sed -i 's/\#PermitRootLogin yes/PermitRootLogin no/'/etc/ssh/sshd_config
+#sed -i 's/\#PubkeyAuthentication yes/PubkeyAuthentication no/'/etc/ssh/sshd_config
+sed -i 's/X11Forwarding yes/X11Forwarding no/'/etc/ssh/sshd_config
 
-echo "alterar arquivo ssh_config" 
-cp /etc/ssh/ssh_config /etc/ssh/ssh_config.bkp$DATA
-
+echo "alterar arquivo ssh_config" $OK >> $LOG
 echo "efetuando backup arquivo ssh_config"
-sed -i 's/   HashKnownHosts*|HashKnownHosts yes/' /etc/ssh/ssh_config
-sed -i 's/\#   ForwardX11 no/ForwardX11 no/' /etc/ssh/ssh_config
-sed -i 's/\#   Port 22/Port 2220/' /etc/ssh/ssh_config
+cp /etc/ssh/ssh_config /etc/ssh/ssh_config.bkp$DATA
+sed -i 's/HashKnownHosts*|HashKnownHosts yes/' /etc/ssh/ssh_config
+sed -i 's/\#.*ForwardX11 no/ForwardX11 no/' /etc/ssh/ssh_config
+#sed -i 's/\#.*Port 22/Port 2220/' /etc/ssh/ssh_config
 
 echo "Autorizando cifras fortes SSH aes128-ctr,aes192-ctr,aes256-ctr..." $OK >> $LOG
-sed -i 's/\#   Ciphers/Ciphers/' /etc/ssh/ssh_config
+sed -i 's/\#.*Ciphers/Ciphers/' /etc/ssh/ssh_config
 
 echo "Alterar permissao no diretorio /boot (600)" $OK >> $LOG
 #Padrao 644 nos arquivos e 755 no grub
@@ -409,10 +401,10 @@ echo -e "----------------------------------------------------------------------"
 echo "Listar senhas expiradas" $OK >> $LOG
 cat /etc/shadow | cut -d: -f 1,2 | grep '!' >>  $LOG
 echo -e "----------------------------------------------------------------------" >>$LOG
-echo "lista usuarios disponiveis" >> $LOG
+echo "lista usuarios disponiveis" $OK >> $LOG
 egrep -v '.*:\*|:\!' /etc/shadow | awk -F: '{print $1}'  >> $LOG
 echo -e "----------------------------------------------------------------------" >>$LOG
-echo "Lista de usuários root ou id 0" >> $LOG
+echo "Lista de usuários root ou id 0" $OK >> $LOG
 awk -F: '($3 == "0") {print}' /etc/passwd >> $LOG
 echo -e "----------------------------------------------------------------------" >>$LOG
 echo "Procurando senhas em branco" $OK >> $LOG
