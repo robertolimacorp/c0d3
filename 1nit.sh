@@ -124,7 +124,15 @@ mv tor-browser_en-US/ tor-browser/
 echo "Tor Browser instalado com sucesso" $OK >> $LOG
 fi
 
+#update searchsploit
+echo "Instalando eploitdb"
+apt -y install exploitdb
+apt -y install exploitdb-bin-sploits exploitdb-papers
+
 #instalação de tools
+echo "Atualizando Tools"
+sqlmap --update
+updatedb
 clear
 echo "Instalando Arsenal no sistema" $OK >> $LOG
 echo -e "----------------------------------------------------------------------" >>$LOG
@@ -443,7 +451,7 @@ clear
 proxychains firefox $GOOGLE'inrul%3A'$PALAVRA+'ext%3A'xls$TAIL $GOOGLE'inurl%3A'$PALAVRA+'ext%3A'pdf$TAIL $GOOGLE'inurl%3A'$PALAVRA+'ext%3A'txt+-robots.txt$TAIL $GOOGLE'inurl%3A'$PALAVRA+'ext%3A'csv$TAIL $GOOGLE'inurl%3A'$PALAVRA+'%22administrative+login%22+%7C+%22admin+login%22+%7C+%22panel+login%22+%7C+%22painel+administrativo%22+site%3Acom.br'$TAIL $GOOGLE'inurl%3A'$PALAVRA+'intitle%3A%22index+of%22'$TAIL $GOOGLE'inurl%3A'$PALAVRA+'server.at+%22Apache%2F2.4.12%22'$TAIL $GOOGLE'inurl%3A'$PALAVRA+'%22Microsoft-IIS%2F5.0+server+at%22'$TAIL $GOOGLE'inurl%3A'$PALAVRA+'%28php+%7C+asp+%7C+aspx+%7C+jsp%29'$TAIL 
 
 #Para iniciar todos os buscadores basta descomentar a linha abaixo
-#firefox https://www.shodan.io/ https://censys.io/ https://fofa.so/ https://app.binaryedge.io/login https://www.onyphe.io/ https://ghostproject.fr/ https://wigle.net/index https://hunter.io/ https://www.zoomeye.org/ https://www.netdb.io/ https://www.google.com/ https://www.bing.com/
+#firefox https://intelx.io/ https://www.shodan.io/ https://censys.io/ https://fofa.so/ https://app.binaryedge.io/login https://www.onyphe.io/ https://ghostproject.fr/ https://wigle.net/index https://hunter.io/ https://www.zoomeye.org/ https://www.netdb.io/ https://www.google.com/ https://www.bing.com/
 
 else 
 clear 
