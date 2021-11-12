@@ -1,5 +1,4 @@
-
- #!/bin/bash
+#!/bin/bash
 ###############################################################################
 # Descricao: Script EHT - Gray Box
 #------------------------------------------------------------------------------
@@ -14,7 +13,6 @@
 #set -x       #Descommentar essa linha para ver em modo debug o script
 ###############################################################################
 clear
-
 #Variaveis globais
 #------------------------------------------
 OFF=/dev/null
@@ -30,18 +28,17 @@ HOST=`hostname`
 DATA=`date +"%d%m%Y-%H%M"`
 LOG=/root/Desktop/$HOST-$DATA.txt
 touch $LOG
-
 #------------------------------------------
 echo "Verificar privilegios necessarios..."
 echo
-#Verificar se o Script esta como Root
+#Verificar se o Script executa como Root
 if [ $(id -u) -ne 0 ] ; then
-echo " Favor executar como root " $FAIL >> $LOG
+echo " Favor executar com privilegios administrativos" $FAIL >> $LOG
+echo "Privilegios administrativos" $FAIL >> $LOG
 exit
 else
-echo "Privilegios administrativos OK" $OK >> $LOG
+echo "Privilegios administrativos" $OK >> $LOG
 fi
-
 
 echo ${NC}${YELLOW}
 echo '=============== ...Iniciando configuracao do sistema ... ==============='
@@ -54,12 +51,12 @@ echo 'IPs:'`ifconfig |egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}'`
 echo "-----------------------------------------------------------------------" >> $LOG
 echo "-----------------------------------------------------------------------"
 echo ''
+
 #Atualizar o sistema
 echo "Deseja atualizar o sistema Update e Upgrade? Sim ou Não [S/n]"
 read RESP
 if [ "$RESP" = "S" ]; then
 echo "Atualizando o sistema" $OK >> $LOG
-
 apt-get install update && apt-get install upgrade -y
 else
 echo "Atualizacao cancelada pelo usuario" $FAIL >> $LOG
@@ -68,11 +65,10 @@ fi
 #Timezone
 echo "Timezone"
 timedatectl status |grep -i "NTP service: n/a" > $OFF
-
 if [ "$?" = "0" ]; then
-echo "timezone nao habilitado" $FAIL >> $LOG
+echo "Timezone habilitado" $FAIL >> $LOG
 else
-echo  "timezone OK" $OK >> $LOG
+echo "Timezone habilitado" $OK >> $LOG
 fi
 
 #Exportar timezone
