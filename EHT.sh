@@ -34,20 +34,21 @@ echo -e ${GREEN}"Verificar privilegios necessarios..."${NC}${WHITE}
 echo
 #Verificar se o Script executa como Root
 if [ $(id -u) -ne 0 ] ; then
-echo -e " Favor executar com privilegios administrativos" $FAIL | tee  $LOG
+echo -e " Favor executar com privilegios administrativos" $FAIL | tee -a $LOG
 exit
 else
-echo -e "Privilegios administrativos" $OK | tee  $LOG
+echo -e "Privilegios administrativos" $OK | tee -a $LOG
 fi
 
 echo -e ${NC}${GREEN}
 echo -e '=============== ...Iniciando configuracao do sistema ... ==============='
 echo -e ''
 echo -e '--------------- ...Informacoes do host...-------------------------------'${NC}${WHITE}
-echo -e 'Hostname: '`uname -n` | tee  $LOG
+hst=$(`uname -n`)
+echo -e 'Hostname: '$hst | tee -a $LOG
 ip=$(echo -e 'IPs:'`ip add |egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}'` | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}')
 echo -e ${NC}${WHITE}"Rede:" ${NC}${RED} $ip ${NC} | tee $LOG
-echo -e "-----------------------------------------------------------------------" | tee  $LOG
+echo -e "-----------------------------------------------------------------------" | tee -a $LOG
 echo -e "-----------------------------------------------------------------------"
 echo -e ''${WHITE}
 
@@ -55,10 +56,10 @@ echo -e ''${WHITE}
 echo -e "Deseja atualizar o sistema Update e Upgrade? Sim ou Não [S/n]"
 read RESP
 if [ "$RESP" = "S" ]; then
-echo -e "Atualizando o sistema" $OK | tee  $LOG
+echo -e "Atualizando o sistema" $OK | tee -a $LOG
 apt-get update -y && apt-get upgrade --fix-missing -y
 else
-echo -e "Atualizacao cancelada pelo usuario" $FAIL | tee  $LOG
+echo -e "Atualizacao cancelada pelo usuario" $FAIL | tee -a $LOG
 fi
 
 #Timezone
@@ -67,7 +68,7 @@ echo -e "-- Configuracao do Timezone"
 echo -e ''
 zone=$(timedatectl status | grep -i "NTP service: n/a")
 if [ "$zone" = "NTP service: n/a" ]; then
-echo -e "Sem servico NTP" $FAIL | tee  $LOG
+echo -e "Sem servico NTP" $FAIL | tee -a $LOG
 else
 echo -e "Servico habilitado" $OK
 fi
@@ -76,12 +77,12 @@ fi
 echo -e ''
 echo -e "Atualizando o Timezone..."
 echo -e ''
-echo -e "Timezone America Sao Paulo" $OK | tee  $LOG
+echo -e "Timezone America Sao Paulo" $OK | tee -a $LOG
 timedatectl set-timezone America/Sao_Paulo
 export TZ=America/Sao_Paulo
 
 #instalar NTP
-#echo -e "Instalar NTP" $OK | tee  $LOG
+#echo -e "Instalar NTP" $OK | tee  -a $LOG
 #apt-get install ntp
 #apt-get install ntpdate
 #ntpdate pool.ntp.br
@@ -99,16 +100,17 @@ echo -e "Ferramenta NMAP - https://nmap.org/"
 echo -e ''
 nmp=$(which nmap)
 if [ "$nmp" = "" ]; then
-echo -e "NMAP Nao Encontrado!" $FAIL | tee  $LOG
+echo -e "NMAP Nao Encontrado!" $FAIL | tee -a $LOG
 echo -e ''
 echo -e 'Instalando NMAP'
 echo -e ''
 apt-get install nmap -y
 echo -e "\n"
-echo  "NMAP INSTALADO COM SUCESSO" $OK | tee  $LOG
+echo  "NMAP INSTALADO COM SUCESSO" $OK | tee -a $LOG
 else
-echo -e 'NMAP Instalado' $OK | tee  $LOG
+echo -e 'NMAP Instalado' $OK | tee -a $LOG
 fi
+
 
 
 Metasploit
