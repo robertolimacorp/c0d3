@@ -44,7 +44,7 @@ echo -e ${NC}${GREEN}
 echo -e '=============== ...Iniciando configuracao do sistema ... ==============='
 echo -e ''
 echo -e '--------------- ...Informacoes do host...-------------------------------'${NC}${WHITE}
-hst=$(`uname -n`)
+hst=$(uname -n)
 echo -e 'Hostname: '$hst | tee -a $LOG
 ip=$(echo -e 'IPs:'`ip add |egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}'` | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}')
 echo -e ${NC}${WHITE}"Rede:" ${NC}${RED} $ip ${NC} | tee $LOG
@@ -60,6 +60,28 @@ echo -e "Atualizando o sistema" $OK | tee -a $LOG
 apt-get update -y && apt-get upgrade --fix-missing -y
 else
 echo -e "Atualizacao cancelada pelo usuario" $FAIL | tee -a $LOG
+fi
+
+echo -e "Adicionando o repositorio Kali no host"
+echo -e ""
+kali=$(grep "kali" /etc/apt/sources.list)
+if [ "$kali" = "" ]; then
+echo -e "Sem Repositorio" $FAIL
+echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list
+apt clean
+apt update -y | tee erro
+key=$(cat erro | grep -i "no_pubkey" | head -1 | cut -f 2 -d ":" | cut -f3 -d " ")
+gpg --keyserver pgpkeys.mit.edu --recv-key $key
+gpg -a --export $key | sudo apt-key add -
+apt clean
+apt update -y
+rm erro
+echo -e "\n"
+echo -e "Repositorio Adicionado" $OK
+else
+apt clean && apt update -y
+echo -e "\n"
+echo -e "Maquina Pronta" $OK
 fi
 
 #Timezone
