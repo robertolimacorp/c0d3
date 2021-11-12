@@ -7,7 +7,8 @@
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 # ID                    Date                    version
-# Roberto.Lima  2021.11.11                       0.1
+# Roberto.Lima  		2021.11.11              0.1
+# Renato.Borbolla  		2021.11.12              0.2
 #------------------------------------------------------------------------------
 ###############################################################################
 #set -x       #Descommentar essa linha para ver em modo debug o script
@@ -22,84 +23,93 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 WHITE='\033[1;37m'
 NC='\033[0m'
-OK=`echo "["${NC}${GREEN}✔${NC}${WHITE}"]"`
-FAIL=`echo "["${NC}${RED}✘${NC}${WHITE}"]"`
+OK=`echo -e "["${NC}${GREEN}✔${NC}${WHITE}"]"`
+FAIL=`echo -e "["${NC}${RED}✘${NC}${WHITE}"]"`
 HOST=`hostname`
 DATA=`date +"%d%m%Y-%H%M"`
-LOG=/root/Desktop/$HOST-$DATA.txt
+LOG=/tmp/$HOST-$DATA.txt
 touch $LOG
 #------------------------------------------
-echo "Verificar privilegios necessarios..."
+echo -e ${GREEN}"Verificar privilegios necessarios..."${NC}${WHITE}
 echo
 #Verificar se o Script executa como Root
 if [ $(id -u) -ne 0 ] ; then
-echo " Favor executar com privilegios administrativos" $FAIL >> $LOG
-echo "Privilegios administrativos" $FAIL >> $LOG
+echo -e " Favor executar com privilegios administrativos" $FAIL | tee  $LOG
 exit
 else
-echo "Privilegios administrativos" $OK >> $LOG
+echo -e "Privilegios administrativos" $OK | tee  $LOG
 fi
 
-echo ${NC}${YELLOW}
-echo '=============== ...Iniciando configuracao do sistema ... ==============='
-echo ''
-echo '--------------- ...Informacoes do host...-------------------------------'
-echo 'Hostname: '`uname -n` >> $LOG
-uname -n 
-echo 'IPs:'`ifconfig |egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}'` >> $LOG
-echo 'IPs:'`ifconfig |egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}'`
-echo "-----------------------------------------------------------------------" >> $LOG
-echo "-----------------------------------------------------------------------"
-echo ''
+echo -e ${NC}${GREEN}
+echo -e '=============== ...Iniciando configuracao do sistema ... ==============='
+echo -e ''
+echo -e '--------------- ...Informacoes do host...-------------------------------'${NC}${WHITE}
+echo -e 'Hostname: '`uname -n` | tee  $LOG
+ip=$(echo -e 'IPs:'`ip add |egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}'` | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}')
+echo -e ${NC}${WHITE}"Rede:" ${NC}${RED} $ip ${NC} | tee $LOG
+echo -e "-----------------------------------------------------------------------" | tee  $LOG
+echo -e "-----------------------------------------------------------------------"
+echo -e ''${WHITE}
 
 #Atualizar o sistema
-echo "Deseja atualizar o sistema Update e Upgrade? Sim ou Não [S/n]"
+echo -e "Deseja atualizar o sistema Update e Upgrade? Sim ou Não [S/n]"
 read RESP
 if [ "$RESP" = "S" ]; then
-echo "Atualizando o sistema" $OK >> $LOG
-apt-get install update && apt-get install upgrade -y
+echo -e "Atualizando o sistema" $OK | tee  $LOG
+apt-get update -y && apt-get upgrade --fix-missing -y
 else
-echo "Atualizacao cancelada pelo usuario" $FAIL >> $LOG
+echo -e "Atualizacao cancelada pelo usuario" $FAIL | tee  $LOG
 fi
 
 #Timezone
-echo "Timezone"
-timedatectl status |grep -i "NTP service: n/a" > $OFF
-if [ "$?" = "0" ]; then
-echo "Timezone habilitado" $FAIL >> $LOG
+echo -e ''
+echo -e "-- Configuracao do Timezone"
+echo -e ''
+zone=$(timedatectl status | grep -i "NTP service: n/a")
+if [ "$zone" = "NTP service: n/a" ]; then
+echo -e "Sem servico NTP" $FAIL | tee  $LOG
 else
-echo "Timezone habilitado" $OK >> $LOG
+echo -e "Servico habilitado" $OK
 fi
 
 #Exportar timezone
-echo "Timezone America Sao Paulo" $OK >> $LOG
+echo -e ''
+echo -e "Atualizando o Timezone..."
+echo -e ''
+echo -e "Timezone America Sao Paulo" $OK | tee  $LOG
 timedatectl set-timezone America/Sao_Paulo
 export TZ=America/Sao_Paulo
 
 #instalar NTP
-#echo "Instalar NTP" $OK >> $LOG
+#echo -e "Instalar NTP" $OK | tee  $LOG
 #apt-get install ntp
 #apt-get install ntpdate
 #ntpdate pool.ntp.br
 
-echo ''
-echo '=============== ...Instanlando Arsenal no sistema ... ==============='
-echo '---------------------------------------------------------------------'
-echo ''
-echo 'Aguarde alguns instantes...'
-echo ''
-echo "NMAP"
-echo 'https://nmap.org/'
-file /usr/share/nmap* > $OFF
-if [ "$?" = "0" ]; then
-echo "NMAP econtrado" $OK >> $LOG
+echo -e ''
+echo -e ${NC}${YELLOW}
+echo -e ''
+echo -e '=============== ...Instanlando Arsenal no Sistema ... ==============='
+echo -e '---------------------------------------------------------------------'
+echo -e ''
+echo -e ${NC}${WHITE}
+echo -e 'Aguarde alguns instantes...'
+echo -e ''
+echo -e "Ferramenta NMAP - https://nmap.org/"
+echo -e ''
+nmp=$(which nmap)
+if [ "$nmp" = "" ]; then
+echo -e "NMAP Nao Encontrado!" $FAIL | tee  $LOG
+echo -e ''
+echo -e 'Instalando NMAP'
+echo -e ''
+apt-get install nmap -y
+echo -e "\n"
+echo  "NMAP INSTALADO COM SUCESSO" $OK | tee  $LOG
 else
-echo 'NMAP nao econtrado' $FAIL >> $LOG
-echo 'NMAP nao econtrado'
-echo 'Instalando NMAP'
-apt-get install nmap -y 
-echo  "NMAP OK" $OK >> $LOG
+echo -e 'NMAP Instalado' $OK | tee  $LOG
 fi
+
 
 Metasploit
 https://www.metasploit.com/download
