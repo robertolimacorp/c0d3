@@ -134,35 +134,35 @@ echo -e 'NMAP Instalado' $OK | tee -a $LOG
 fi
 
 
-
+Kali:
 Ferramenta Metasploit - https://www.metasploit.com/download
-
+Kali:
 Ferramenta Hydra - https://github.com/vanhauser-thc/thc-hydra
 
 Ferramenta Nikto - https://cirt.net/Nikto2 - https://github.com/sullo/nikto
-
+Kali:
 Ferramenta DirSearch - https://github.com/maurosoria/dirsearch
-
+Kali:
 Ferramenta Ffuf - https://github.com/ffuf/ffuf
 
 Ferramenta Nuclei - https://github.com/projectdiscovery/nuclei
-
+Kali:
 Ferramenta OpenVas - https://www.openvas.org/
-
+Kali:
 Ferramenta Wireshark - https://www.wireshark.org/download.html
-
+Kali:
 Ferramenta TCPDump - https://www.tcpdump.org/
-
+Kali:
 Ferramenta Theharvester - https://github.com/laramies/theHarvester
-
+Kali:
 Ferramenta Responder - https://github.com/SpiderLabs/Responder
 
 Ferramenta Wappalyzer web - https://github.com/AliasIO/wappalyzer
-
+Kali:
 Ferramenta FTP lib Python - 
-
+Kali:
 Ferramenta Mysql - https://www.mysql.com/downloads/
-
+Kali:
 Ferramenta SqlMap - https://sqlmap.org/
 
 Ferramenta LinEnum - https://github.com/rebootuser/LinEnum
@@ -180,29 +180,29 @@ Ferramenta Raccoon - https://github.com/evyatarmeged/Raccoon
 Ferramenta RustScan - https://github.com/RustScan/RustScan
 
 Ferramenta BashScan - https://github.com/astryzia/BashScan
-
+Kali:
 Ferramenta GoBuster - https://github.com/OJ/gobuster
 
 Ferramenta Recursive GoBuster - https://github.com/epi052/recursive-gobuster
-
+Kali:
 Ferramenta wfuzz - https://github.com/xmendez/wfuzz
 
 Ferramenta goWAPT - https://github.com/dzonerzy/goWAPT
-
+Kali:
 Ferramenta Crackmapexec - https://github.com/byt3bl33d3r/CrackMapExec
-
+Kali:
 Ferramenta Whatweb - https://github.com/urbanadventurer/WhatWeb
-
+Kali:
 Ferramenta Bloodhound - https://github.com/BloodHoundAD/BloodHound/releases/tag/4.0.3
-
+Kali:
 Ferramenta neo4j - https://neo4j.com/download/
-
+Kali:
 Ferramenta nbtscan - https://github.com/scallywag/nbtscan
-
+Kali:
 Ferramenta Nikto https://github.com/sullo/nikto
-
+Kali:
 Ferramenta dirb - https://tools.kali.org/web-applications/dirb
-
+Kali:
 Ferramenta dirbuster - https://tools.kali.org/web-applications/dirbuster
 
 Ferramenta feroxbuster - https://github.com/epi052/feroxbuster
@@ -212,7 +212,7 @@ Ferramenta FinalRecon - https://github.com/thewhiteh4t/FinalRecon
 Ferramenta Impacket (SMB, psexec, etc) - https://github.com/SecureAuthCorp/impacket
 
 Ferramenta updog - https://github.com/sc0tfree/updog
-
+Kali:
 Ferramenta SecLists - https://github.com/danielmiessler/SecLists
 
 Ferramenta Reverse Shell Generator - https://github.com/cwinfosec/revshellgen
@@ -232,15 +232,13 @@ Ferramenta AutoNSE - https://github.com/m4ll0k/AutoNSE
 Ferramenta Linux Kernel Exploits - https://github.com/lucyoa/kernel-exploits
 
 Ferramenta BruteX - https://github.com/1N3/BruteX
-
+Kali:
 Ferramenta Hashcat - https://hashcat.net/hashcat/
-
+Kali:
 Ferramenta John the Ripper https://www.openwall.com/john/
 
-Ferramenta LinEnum - https://github.com/rebootuser/LinEnum
-
 Ferramenta linprivchecker - https://www.securitysift.com/download/linuxprivchecker.py
-
+Kali:
 Ferramenta Enum4linux - https://github.com/CiscoCXSecurity/enum4linux
 
 Ferramenta Linux Exploit Suggester - https://github.com/mzet-/linux-exploit-suggester
