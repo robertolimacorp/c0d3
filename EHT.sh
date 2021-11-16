@@ -135,185 +135,193 @@ fi
 
 
 
-Metasploit
-https://www.metasploit.com/download
+Ferramenta Metasploit - https://www.metasploit.com/download
 
-Hydra
-https://github.com/vanhauser-thc/thc-hydra
+Ferramenta Hydra - https://github.com/vanhauser-thc/thc-hydra
 
-Nikto
-https://cirt.net/Nikto2
-https://github.com/sullo/nikto
+Ferramenta Nikto - https://cirt.net/Nikto2 - https://github.com/sullo/nikto
 
-DirSearch
-https://github.com/maurosoria/dirsearch
+Ferramenta DirSearch - https://github.com/maurosoria/dirsearch
 
-Ffuf
-https://github.com/ffuf/ffuf
+Ferramenta Ffuf - https://github.com/ffuf/ffuf
 
-Nuclei
-https://github.com/projectdiscovery/nuclei
+Ferramenta Nuclei - https://github.com/projectdiscovery/nuclei
 
-OpenVas
-https://www.openvas.org/
+Ferramenta OpenVas - https://www.openvas.org/
 
-Wireshark
-https://www.wireshark.org/download.html
+Ferramenta Wireshark - https://www.wireshark.org/download.html
 
-TCPDump
-https://www.tcpdump.org/
+Ferramenta TCPDump - https://www.tcpdump.org/
 
-Theharvester
-https://github.com/laramies/theHarvester
+Ferramenta Theharvester - https://github.com/laramies/theHarvester
 
-Responder
-https://github.com/SpiderLabs/Responder
+Ferramenta Responder - https://github.com/SpiderLabs/Responder
 
-Wappalyzer web
-https://github.com/AliasIO/wappalyzer
+Ferramenta Wappalyzer web - https://github.com/AliasIO/wappalyzer
 
-FTP lib Python
+Ferramenta FTP lib Python - 
 
-Mysql
-https://www.mysql.com/downloads/
+Ferramenta Mysql - https://www.mysql.com/downloads/
 
-SqlMap
-https://sqlmap.org/
+Ferramenta SqlMap - https://sqlmap.org/
 
-LinEnum
-https://github.com/rebootuser/LinEnum
+Ferramenta LinEnum - https://github.com/rebootuser/LinEnum
 
-Thc-IPv6
-https://github.com/vanhauser-thc/thc-ipv6
+Ferramenta Thc-IPv6 - https://github.com/vanhauser-thc/thc-ipv6
 
-AutoRecon
-https://github.com/Tib3rius/AutoRecon
+Ferramenta AutoRecon - https://github.com/Tib3rius/AutoRecon
 
-nmapAutomator
-https://github.com/21y4d/nmapAutomator
+Ferramenta nmapAutomator - https://github.com/21y4d/nmapAutomator
 
-Reconbot
-https://github.com/Apathly/Reconbot
+Ferramenta Reconbot - https://github.com/Apathly/Reconbot
 
-Raccoon
-https://github.com/evyatarmeged/Raccoon
+Ferramenta Raccoon - https://github.com/evyatarmeged/Raccoon
 
-RustScan
-https://github.com/RustScan/RustScan
+Ferramenta RustScan - https://github.com/RustScan/RustScan
 
-BashScan
-https://github.com/astryzia/BashScan
+Ferramenta BashScan - https://github.com/astryzia/BashScan
 
-GoBuster
-https://github.com/OJ/gobuster
+Ferramenta GoBuster - https://github.com/OJ/gobuster
 
-Recursive GoBuster
-https://github.com/epi052/recursive-gobuster
+Ferramenta Recursive GoBuster - https://github.com/epi052/recursive-gobuster
 
-wfuzz
-https://github.com/xmendez/wfuzz
+Ferramenta wfuzz - https://github.com/xmendez/wfuzz
 
-goWAPT
-https://github.com/dzonerzy/goWAPT
+Ferramenta goWAPT - https://github.com/dzonerzy/goWAPT
 
-Crackmapexec
-https://github.com/byt3bl33d3r/CrackMapExec
+Ferramenta Crackmapexec - https://github.com/byt3bl33d3r/CrackMapExec
 
-Whatweb
-https://github.com/urbanadventurer/WhatWeb
+Ferramenta Whatweb - https://github.com/urbanadventurer/WhatWeb
 
-Bloodhound
-https://github.com/BloodHoundAD/BloodHound/releases/tag/4.0.3
+Ferramenta Bloodhound - https://github.com/BloodHoundAD/BloodHound/releases/tag/4.0.3
 
-neo4j
-https://neo4j.com/download/
+Ferramenta neo4j - https://neo4j.com/download/
 
-nbtscan
-https://github.com/scallywag/nbtscan
+Ferramenta nbtscan - https://github.com/scallywag/nbtscan
 
-Nikto
-https://github.com/sullo/nikto
+Ferramenta Nikto https://github.com/sullo/nikto
 
-dirb
-https://tools.kali.org/web-applications/dirb
+Ferramenta dirb - https://tools.kali.org/web-applications/dirb
 
-dirbuster
-https://tools.kali.org/web-applications/dirbuster
+Ferramenta dirbuster - https://tools.kali.org/web-applications/dirbuster
 
-feroxbuster
-https://github.com/epi052/feroxbuster
+Ferramenta feroxbuster - https://github.com/epi052/feroxbuster
 
-FinalRecon
-https://github.com/thewhiteh4t/FinalRecon
+Ferramenta FinalRecon - https://github.com/thewhiteh4t/FinalRecon
 
-Impacket (SMB, psexec, etc)
-https://github.com/SecureAuthCorp/impacket
+Ferramenta Impacket (SMB, psexec, etc) - https://github.com/SecureAuthCorp/impacket
 
-updog
-https://github.com/sc0tfree/updog
+Ferramenta updog - https://github.com/sc0tfree/updog
 
-SecLists
-https://github.com/danielmiessler/SecLists
+Ferramenta SecLists - https://github.com/danielmiessler/SecLists
 
-Reverse Shell Generator
-https://github.com/cwinfosec/revshellgen
+Ferramenta Reverse Shell Generator - https://github.com/cwinfosec/revshellgen
 
-Windows Reverse Shell Generator
-https://github.com/thosearetheguise/rev
+Ferramenta Windows Reverse Shell Generator - https://github.com/thosearetheguise/rev
 
-MSFVenom Payload Creator
-https://github.com/g0tmi1k/msfpc
+Ferramenta MSFVenom Payload Creator - https://github.com/g0tmi1k/msfpc
 
-Windows PHP Reverse Shell
-https://github.com/Dhayalanb/windows-php-reverse-shell
+Ferramenta Windows PHP Reverse Shell - https://github.com/Dhayalanb/windows-php-reverse-shell
 
-PenTestMonkey Unix PHP Reverse Shell
-http://pentestmonkey.net/tools/web-shells/php-reverse-shell
+Ferramenta PenTestMonkey Unix PHP Reverse Shell - http://pentestmonkey.net/tools/web-shells/php-reverse-shell
 
-Windows Kernel Exploits
-https://github.com/SecWiki/windows-kernel-exploits
+Ferramenta Windows Kernel Exploits - https://github.com/SecWiki/windows-kernel-exploits
 
-AutoNSE
-https://github.com/m4ll0k/AutoNSE
+Ferramenta AutoNSE - https://github.com/m4ll0k/AutoNSE
 
-Linux Kernel Exploits
-https://github.com/lucyoa/kernel-exploits
+Ferramenta Linux Kernel Exploits - https://github.com/lucyoa/kernel-exploits
 
-BruteX
-https://github.com/1N3/BruteX
+Ferramenta BruteX - https://github.com/1N3/BruteX
 
-Hashcat
-https://hashcat.net/hashcat/
+Ferramenta Hashcat - https://hashcat.net/hashcat/
 
-John the Ripper
-https://www.openwall.com/john/
+Ferramenta John the Ripper https://www.openwall.com/john/
 
-LinEnum
-https://github.com/rebootuser/LinEnum
+Ferramenta LinEnum - https://github.com/rebootuser/LinEnum
 
-linprivchecker
-https://www.securitysift.com/download/linuxprivchecker.py
+Ferramenta linprivchecker - https://www.securitysift.com/download/linuxprivchecker.py
 
-Enum4linux
-https://github.com/CiscoCXSecurity/enum4linux
+Ferramenta Enum4linux - https://github.com/CiscoCXSecurity/enum4linux
 
-Linux Exploit Suggester
-https://github.com/mzet-/linux-exploit-suggester
+Ferramenta Linux Exploit Suggester - https://github.com/mzet-/linux-exploit-suggester
 
-Windows Exploit Suggester
-https://github.com/bitsadmin/wesng
+Ferramenta Windows Exploit Suggester - https://github.com/bitsadmin/wesng
 
-Windows Privilege Escalation Awesome Scripts (WinPEAS)
-https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS
+Ferramenta Windows Privilege Escalation Awesome Scripts (WinPEAS) - https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS
 
-Linux Privilege Escalation Awesome Script (LinPEAS)
-https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS
+Ferramenta Linux Privilege Escalation Awesome Script (LinPEAS) - https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS
 
-Get GTFOBins
-https://github.com/CristinaSolana/ggtfobins
+Ferramenta Get GTFOBins - https://github.com/CristinaSolana/ggtfobins
 
-sudo_killer
-https://github.com/TH3xACE/SUDO_KILLER
+Ferramenta sudo_killer - https://github.com/TH3xACE/SUDO_KILLER
 
-PTF
-https://github.com/trustedsec/ptf
+Ferramenta PTF - https://github.com/trustedsec/ptf
+
+echo -e '=============== ...Inserindo refências para Auditoria ... ==============='
+echo -e '---------------------------------------------------------------------'
+echo -e "Repositorio Kali Linux - https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/"
+echo -e "Ferramenta Metasploit - https://www.metasploit.com/download"
+echo -e "Ferramenta Hydra - https://github.com/vanhauser-thc/thc-hydra"
+echo -e "Ferramenta Nikto - https://cirt.net/Nikto2 - https://github.com/sullo/nikto"
+echo -e "Ferramenta DirSearch - https://github.com/maurosoria/dirsearch"
+echo -e "Ferramenta Ffuf - https://github.com/ffuf/ffuf"
+echo -e "Ferramenta Nuclei - https://github.com/projectdiscovery/nuclei"
+echo -e "Ferramenta OpenVas - https://www.openvas.org/"
+echo -e "Ferramenta Wireshark - https://www.wireshark.org/download.html"
+echo -e "Ferramenta TCPDump - https://www.tcpdump.org/"
+echo -e "Ferramenta Theharvester - https://github.com/laramies/theHarvester"
+echo -e "Ferramenta Responder - https://github.com/SpiderLabs/Responder"
+echo -e "Ferramenta Wappalyzer web - https://github.com/AliasIO/wappalyzer"
+echo -e "Ferramenta FTP lib Python - "
+echo -e "Ferramenta Mysql - https://www.mysql.com/downloads/"
+echo -e "Ferramenta SqlMap - https://sqlmap.org/"
+echo -e "Ferramenta LinEnum - https://github.com/rebootuser/LinEnum"
+echo -e "Ferramenta Thc-IPv6 - https://github.com/vanhauser-thc/thc-ipv6"
+echo -e "Ferramenta AutoRecon - https://github.com/Tib3rius/AutoRecon"
+echo -e "Ferramenta nmapAutomator - https://github.com/21y4d/nmapAutomator"
+echo -e "Ferramenta Reconbot - https://github.com/Apathly/Reconbot"
+echo -e "Ferramenta Raccoon - https://github.com/evyatarmeged/Raccoon"
+echo -e "Ferramenta RustScan - https://github.com/RustScan/RustScan"
+echo -e "Ferramenta BashScan - https://github.com/astryzia/BashScan"
+echo -e "Ferramenta GoBuster - https://github.com/OJ/gobuster"
+echo -e "Ferramenta Recursive GoBuster - https://github.com/epi052/recursive-gobuster"
+echo -e "Ferramenta wfuzz - https://github.com/xmendez/wfuzz"
+echo -e "Ferramenta goWAPT - https://github.com/dzonerzy/goWAPT"
+echo -e "Ferramenta Crackmapexec - https://github.com/byt3bl33d3r/CrackMapExec"
+echo -e "Ferramenta Whatweb - https://github.com/urbanadventurer/WhatWeb"
+echo -e "Ferramenta Bloodhound - https://github.com/BloodHoundAD/BloodHound/releases/tag/4.0.3"
+echo -e "Ferramenta neo4j - https://neo4j.com/download/"
+echo -e "Ferramenta nbtscan - https://github.com/scallywag/nbtscan"
+echo -e "Ferramenta Nikto https://github.com/sullo/nikto"
+echo -e "Ferramenta dirb - https://tools.kali.org/web-applications/dirb"
+echo -e "Ferramenta dirbuster - https://tools.kali.org/web-applications/dirbuster"
+echo -e "Ferramenta feroxbuster - https://github.com/epi052/feroxbuster"
+echo -e "Ferramenta FinalRecon - https://github.com/thewhiteh4t/FinalRecon"
+echo -e "Ferramenta Impacket (SMB, psexec, etc) - https://github.com/SecureAuthCorp/impacket"
+echo -e "Ferramenta updog - https://github.com/sc0tfree/updog"
+echo -e "Ferramenta SecLists - https://github.com/danielmiessler/SecLists"
+echo -e "Ferramenta Reverse Shell Generator - https://github.com/cwinfosec/revshellgen"
+echo -e "Ferramenta Windows Reverse Shell Generator - https://github.com/thosearetheguise/rev"
+echo -e "Ferramenta MSFVenom Payload Creator - https://github.com/g0tmi1k/msfpc"
+echo -e "Ferramenta Windows PHP Reverse Shell - https://github.com/Dhayalanb/windows-php-reverse-shell"
+echo -e "Ferramenta PenTestMonkey Unix PHP Reverse Shell - http://pentestmonkey.net/tools/web-shells/php-reverse-shell"
+echo -e "Ferramenta Windows Kernel Exploits - https://github.com/SecWiki/windows-kernel-exploits"
+echo -e "Ferramenta AutoNSE - https://github.com/m4ll0k/AutoNSE"
+echo -e "Ferramenta Linux Kernel Exploits - https://github.com/lucyoa/kernel-exploits"
+echo -e "Ferramenta BruteX - https://github.com/1N3/BruteX"
+echo -e "Ferramenta Hashcat - https://hashcat.net/hashcat/"
+echo -e "Ferramenta John the Ripper https://www.openwall.com/john/"
+echo -e "Ferramenta LinEnum - https://github.com/rebootuser/LinEnum"
+echo -e "Ferramenta linprivchecker - https://www.securitysift.com/download/linuxprivchecker.py"
+echo -e "Ferramenta Enum4linux - https://github.com/CiscoCXSecurity/enum4linux"
+echo -e "Ferramenta Linux Exploit Suggester - https://github.com/mzet-/linux-exploit-suggester"
+echo -e "Ferramenta Windows Exploit Suggester - https://github.com/bitsadmin/wesng"
+echo -e "Ferramenta Windows Privilege Escalation Awesome Scripts (WinPEAS) - https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS"
+echo -e "Ferramenta Linux Privilege Escalation Awesome Script (LinPEAS) - https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS"
+echo -e "Ferramenta Get GTFOBins - https://github.com/CristinaSolana/ggtfobins"
+echo -e "Ferramenta sudo_killer - https://github.com/TH3xACE/SUDO_KILLER"
+echo -e "Ferramenta PTF - https://github.com/trustedsec/ptf"
+
+echo -e "<p>Elaborado por: Roberto Lima | " >> $LOG
+echo -e "</div></body></html>" >> $LOG
+echo -e "Instalacao deste sistema foi realizada em" $DATA  
