@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>EHT - Ethical Hacking Test</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <style>
+
+.topnav {
+ display: flex;
+ justify-content: center;
+ margin: -1%;
+ background-color: #003366;
+}
+  
+.menu-opcoes ul {
+   font-size: 20px;
+}
+
+.menu-opcoes a {
+ color: white;
+ text-decoration: none;
+}
+
+ .menu-opcoes ul li {
+  display: inline;
+  margin-left: 30px;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+    color: #003366;
+    
+
+}
+.text {
+    color: #003366
+}
+
+.dados p{
+    display: block;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.75em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.links {
+    text-decoration: none;
+    
+
+
+}
+.copyright {
+    color:aliceblue;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    background-color: #003366;
+    text-align: center;
+    margin: -1%;
+
+}
+
+    </style>
+    <nav class="topnav menu-opcoes">
+        <ul>
+          <li><a href="#">Projeto</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+     
+    <h1>Ethical Hacking Test</h1>
+    <div class="text">
+    <ul class="dados">
+       <p><strong>Empresa: </strong>ACME Corp</p>
+       <p><strong>Usuário: </strong>User</p>
+       <p><strong>Hostname: </strong>Kali</p>
+       <p><strong>IP: </strong>192.168.10.10</p>
+    </ul>
+    <h2>Modalidades de Testes</h2>
+    <p>Este relatório apresenta as modificacoes efetuadas no sistema operacional para realização do teste de intrusao na modalidade <i>Gray Box.</i></p>
+    <p>Com as descrições deste documento, será possível validar os pontos alterados no sistema com as ferramentas instaladas no ambiente da máquina disponibilizada para execução do teste de intrusão.</p> 
+    <h3>Etapas de Execução</h3>
+    <p>Ao longo da execução buscaremos por diversas classes de vulnerabilidades que possam comprometer o ambiente ou negócio no geral, automatizando as seguintes etapas;</p>
+    <ul> 
+    <li>Análise de superfície;</li>
+    <li>Busca de ameaças relevantes;</li>
+    <li>Coleta de informações;</li>
+    <li>Mapeamento e Rastreio de vulnerabilidades;</li>
+    <li>Enumeração de serviços;</li>
+<!--<li>Análise de profundidade;</li>
+    <li>Análise de Métodos;</li>
+    <li>Análise de Autorização;</li>
+    <li>Análise e Consumo de Recursos;</li>
+    <li>Intrusão & Exploração.</li>-->
+   </ul>
+
+    <h3>Os controles inseridos são:</h3>
+    <ul>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #F7C510;" value=""> Validar conexão de Internet</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Validar execução inicial do scritp de instalação de ferramentas do ambiente</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Validar existência do repositorio Kali Linux no ambiente /etc/apt/sources.list</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Atualização do sistema - Update & Upgrade</p>
+
+    
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    </ul>
+    <h3>Referências:</h3>
+    <div class="links">
+    <p><strong>Kali Linux</strong></p> 
+    <ul>
+    <li><a href="https://www.metasploit.com/download" target="_blank" rel="nofollow noopener">Ferramenta Metasploit</a> </li>
+    <li><a href="https://github.com/vanhauser-thc/thc-hydra" target="_blank" rel="nofollow noopener">Ferramenta Hydra</a></li>
+    <li><a href="https://github.com/maurosoria/dirsearch" target="_blank" rel="nofollow noopener">Ferramenta DirSearch</a></li>
+    <li><a href="https://github.com/ffuf/ffuf" target="_blank" rel="nofollow noopener">Ferramenta Ffuf </a></li>
+    <li><a href="https://www.openvas.org/" target="_blank" rel="nofollow noopener">Ferramenta OpenVas</a></li>
+    <li><a href="https://www.wireshark.org/download.html" target="_blank" rel="nofollow noopener">Ferramenta Wireshark</a></li>
+    <li><a href="https://www.tcpdump.org/" target="_blank" rel="nofollow noopener">Ferramenta TCPDump</a></li>
+    <li><a href="https://github.com/laramies/theHarvester" target="_blank" rel="nofollow noopener">Ferramenta Theharvester</a></li>
+    <li><a href="https://github.com/SpiderLabs/Responder" target="_blank" rel="nofollow noopener">Ferramenta Responder</a></li>
+    <li>Ferramenta FTP lib Python</li>
+    <li><a href="https://www.mysql.com/downloads/" target="_blank" rel="nofollow noopener">Ferramenta Mysql</a></li>
+    <li><a href="https://sqlmap.org/" target="_blank" rel="nofollow noopener">Ferramenta SqlMap</a></li>
+    <li><a href="https://github.com/vanhauser-thc/thc-ipv6" target="_blank" rel="nofollow noopener">Ferramenta Thc-IPv6</a></li>
+    <li><a href="https://github.com/byt3bl33d3r/CrackMapExec" target="_blank" rel="nofollow noopener">Ferramenta Crackmapexec</a></li>
+    <li><a href="https://github.com/urbanadventurer/WhatWeb" target="_blank" rel="nofollow noopener">Ferramenta Whatweb</a></li>
+    <li><a href="https://github.com/BloodHoundAD/BloodHound/releases/tag/4.0.3" target="_blank" rel="nofollow noopener">Ferramenta Bloodhound</a></li>
+    <li><a href="https://neo4j.com/download/" target="_blank" rel="nofollow noopener">Ferramenta neo4j</a></li>
+    <li><a href="https://github.com/scallywag/nbtscan" target="_blank" rel="nofollow noopener">Ferramenta nbtscan</a></li>
+    <li><a href="https://github.com/sullo/nikto" target="_blank" rel="nofollow noopener">Ferramenta Nikto</a></li>
+    <li><a href="https://tools.kali.org/web-applications/dirb" target="_blank" rel="nofollow noopener">Ferramenta dirb</a></li>
+    <li><a href="https://tools.kali.org/web-applications/dirbuster" target="_blank" rel="nofollow noopener">Ferramenta dirbuster</a></li>
+    <li><a href="https://github.com/epi052/feroxbuster" target="_blank" rel="nofollow noopener">Ferramenta feroxbuster</a></li>
+    <li><a href="https://hashcat.net/hashcat/" target="_blank" rel="nofollow noopener">Ferramenta Hashcat</a></li>
+    <li><a href="https://www.openwall.com/john/" target="_blank" rel="nofollow noopener">Ferramenta John the Ripper</a></li>
+    <li><a href="https://github.com/OJ/gobuster" target="_blank" rel="nofollow noopener">Ferramenta GoBuster</a></li>
+    <li><a href="https://github.com/xmendez/wfuzz" target="_blank" rel="nofollow noopener">Ferramenta wfuzz</a></li>
+    <li><a href="https://github.com/CiscoCXSecurity/enum4linux" target="_blank" rel="nofollow noopener">Ferramenta Enum4linux</a></li>
+    <li><a href="https://github.com/SecureAuthCorp/impacket" target="_blank" rel="nofollow noopener">Ferramenta Impacket (SMB, psexec, etc)</a></li>
+    <li><a href="https://github.com/danielmiessler/SecLists" target="_blank" rel="nofollow noopener">Ferramenta SecLists</a></li>
+    <li><a href="https://github.com/g0tmi1k/msfpc" target="_blank" rel="nofollow noopener">Ferramenta MSFVenom Payload Creator</a></li>
+    </ul>
+   
+    <p><strong>Ferramentas Alternativas</strong></p>
+    <ul>
+    <li><a href="https://github.com/projectdiscovery/nuclei" target="_blank" rel="nofollow noopener">Ferramenta Nuclei</a></li>
+    <li><a href="https://github.com/AliasIO/wappalyzer" target="_blank" rel="nofollow noopener">Ferramenta Wappalyzer web</a></li>
+    <li><a href="https://github.com/rebootuser/LinEnum" target="_blank" rel="nofollow noopener">Ferramenta LinEnum</a></li>
+    <li><a href="https://github.com/Tib3rius/AutoRecon" target="_blank" rel="nofollow noopener">Ferramenta AutoRecon</a></li>
+    <li><a href="https://github.com/21y4d/nmapAutomator" target="_blank" rel="nofollow noopener">Ferramenta nmapAutomator</a></li>
+    <li><a href="https://github.com/Apathly/Reconbot" target="_blank" rel="nofollow noopener">Ferramenta Reconbot</a></li>
+    <li><a href="https://github.com/evyatarmeged/Raccoon" target="_blank" rel="nofollow noopener">Ferramenta Raccoon</a></li>
+    <li><a href="https://github.com/RustScan/RustScan" target="_blank" rel="nofollow noopener">Ferramenta RustScan</a></li>
+    <li><a href="https://github.com/astryzia/BashScan" target="_blank" rel="nofollow noopener">Ferramenta BashScan</a></li>
+    <li><a href="https://github.com/epi052/recursive-gobuster" target="_blank" rel="nofollow noopener">Ferramenta Recursive GoBuster</a></li>
+    <li><a href="https://github.com/dzonerzy/goWAPT" target="_blank" rel="nofollow noopener">Ferramenta goWAPT </a></li>
+    <li><a href="https://github.com/thewhiteh4t/FinalRecon" target="_blank" rel="nofollow noopener">Ferramenta FinalRecon</a></li>
+    <li><a href="https://github.com/sc0tfree/updog" target="_blank" rel="nofollow noopener">Ferramenta updog</a></li>
+    <li><a href="https://github.com/cwinfosec/revshellgen" target="_blank" rel="nofollow noopener">Ferramenta Reverse Shell Generator</a></li>
+    <li><a href="https://github.com/thosearetheguise/rev" target="_blank" rel="nofollow noopener">Ferramenta Windows Reverse Shell Generator</a></li>
+    <li><a href="https://github.com/Dhayalanb/windows-php-reverse-shell" target="_blank" rel="nofollow noopener">Ferramenta Windows PHP Reverse Shell</a></li>
+    <li><a href="http://pentestmonkey.net/tools/web-shells/php-reverse-shell" target="_blank" rel="nofollow noopener">Ferramenta PenTestMonkey Unix PHP Reverse Shell</a></li>
+    <li><a href="https://github.com/SecWiki/windows-kernel-exploits" target="_blank" rel="nofollow noopener">Ferramenta Windows Kernel Exploits</a></li>
+    <li><a href="https://github.com/m4ll0k/AutoNSE" target="_blank" rel="nofollow noopener">Ferramenta AutoNSE</a></li>
+    <li><a href="https://github.com/lucyoa/kernel-exploits" target="_blank" rel="nofollow noopener">Ferramenta Linux Kernel Exploits</a></li>
+    <li><a href="https://github.com/1N3/BruteX" target="_blank" rel="nofollow noopener">Ferramenta BruteX</a></li>
+    <li><a href="https://www.securitysift.com/download/linuxprivchecker.py" target="_blank" rel="nofollow noopener">Ferramenta linprivchecker</a></li>
+    <li><a href="https://github.com/mzet-/linux-exploit-suggester" target="_blank" rel="nofollow noopener">Ferramenta Linux Exploit Suggeste</a></li>
+    <li><a href="https://github.com/bitsadmin/wesng" target="_blank" rel="nofollow noopener">Ferramenta Windows Exploit Suggester</a></li>
+    <li><a href="https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS" target="_blank" rel="nofollow noopener">Ferramenta Windows Privilege Escalation Awesome Scripts (WinPEAS)</a></li>
+    <li><a href="https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS" target="_blank" rel="nofollow noopener">Ferramenta Linux Privilege Escalation Awesome Script (LinPEAS)</a></li>
+    <li><a href="https://github.com/CristinaSolana/ggtfobins" target="_blank" rel="nofollow noopener">Ferramenta Get GTFOBins</a></li>
+    <li><a href="https://github.com/TH3xACE/SUDO_KILLER" target="_blank" rel="nofollow noopener">Ferramenta sudo_killer</a></li>
+    <li><a href="https://github.com/trustedsec/ptf" target="_blank" rel="nofollow noopener">Ferramenta PTF</a></li>
+    </ul>
+    </div>
+
+    </div>
+    <br>&nbsp;<br>
+
+<footer>
+    <p class="copyright"> Ethical Hacking Test</p>
+</footer>
+
+</body>
+
+</html>

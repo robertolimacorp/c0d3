@@ -142,8 +142,6 @@ Kali:
 Ferramenta DirSearch - https://github.com/maurosoria/dirsearch
 Kali:
 Ferramenta Ffuf - https://github.com/ffuf/ffuf
-
-Ferramenta Nuclei - https://github.com/projectdiscovery/nuclei
 Kali:
 Ferramenta OpenVas - https://www.openvas.org/
 Kali:
@@ -154,38 +152,14 @@ Kali:
 Ferramenta Theharvester - https://github.com/laramies/theHarvester
 Kali:
 Ferramenta Responder - https://github.com/SpiderLabs/Responder
-
-Ferramenta Wappalyzer web - https://github.com/AliasIO/wappalyzer
 Kali:
 Ferramenta FTP lib Python - 
 Kali:
 Ferramenta Mysql - https://www.mysql.com/downloads/
 Kali:
 Ferramenta SqlMap - https://sqlmap.org/
-
-Ferramenta LinEnum - https://github.com/rebootuser/LinEnum
 Kali:
 Ferramenta Thc-IPv6 - https://github.com/vanhauser-thc/thc-ipv6
-
-Ferramenta AutoRecon - https://github.com/Tib3rius/AutoRecon
-
-Ferramenta nmapAutomator - https://github.com/21y4d/nmapAutomator
-
-Ferramenta Reconbot - https://github.com/Apathly/Reconbot
-
-Ferramenta Raccoon - https://github.com/evyatarmeged/Raccoon
-
-Ferramenta RustScan - https://github.com/RustScan/RustScan
-
-Ferramenta BashScan - https://github.com/astryzia/BashScan
-Kali:
-Ferramenta GoBuster - https://github.com/OJ/gobuster
-
-Ferramenta Recursive GoBuster - https://github.com/epi052/recursive-gobuster
-Kali:
-Ferramenta wfuzz - https://github.com/xmendez/wfuzz
-
-Ferramenta goWAPT - https://github.com/dzonerzy/goWAPT
 Kali:
 Ferramenta Crackmapexec - https://github.com/byt3bl33d3r/CrackMapExec
 Kali:
@@ -204,20 +178,54 @@ Kali:
 Ferramenta dirbuster - https://tools.kali.org/web-applications/dirbuster
 Kali:
 Ferramenta feroxbuster - https://github.com/epi052/feroxbuster
-
-Ferramenta FinalRecon - https://github.com/thewhiteh4t/FinalRecon
+Kali:
+Ferramenta Hashcat - https://hashcat.net/hashcat/
+Kali:
+Ferramenta John the Ripper https://www.openwall.com/john/
+Kali:
+Ferramenta GoBuster - https://github.com/OJ/gobuster
+Kali:
+Ferramenta wfuzz - https://github.com/xmendez/wfuzz
+Kali:
+Ferramenta Enum4linux - https://github.com/CiscoCXSecurity/enum4linux
 Kali:
 Ferramenta Impacket (SMB, psexec, etc) - https://github.com/SecureAuthCorp/impacket
-
-Ferramenta updog - https://github.com/sc0tfree/updog
 Kali:
 Ferramenta SecLists - https://github.com/danielmiessler/SecLists
+Kali:
+Ferramenta MSFVenom Payload Creator - https://github.com/g0tmi1k/msfpc
+
+
+
+Ferramenta Nuclei - https://github.com/projectdiscovery/nuclei
+
+Ferramenta Wappalyzer web - https://github.com/AliasIO/wappalyzer
+
+Ferramenta LinEnum - https://github.com/rebootuser/LinEnum
+
+Ferramenta AutoRecon - https://github.com/Tib3rius/AutoRecon
+
+Ferramenta nmapAutomator - https://github.com/21y4d/nmapAutomator
+
+Ferramenta Reconbot - https://github.com/Apathly/Reconbot
+
+Ferramenta Raccoon - https://github.com/evyatarmeged/Raccoon
+
+Ferramenta RustScan - https://github.com/RustScan/RustScan
+
+Ferramenta BashScan - https://github.com/astryzia/BashScan
+
+Ferramenta Recursive GoBuster - https://github.com/epi052/recursive-gobuster
+
+Ferramenta goWAPT - https://github.com/dzonerzy/goWAPT
+
+Ferramenta FinalRecon - https://github.com/thewhiteh4t/FinalRecon
+
+Ferramenta updog - https://github.com/sc0tfree/updog
 
 Ferramenta Reverse Shell Generator - https://github.com/cwinfosec/revshellgen
 
 Ferramenta Windows Reverse Shell Generator - https://github.com/thosearetheguise/rev
-Kali:
-Ferramenta MSFVenom Payload Creator - https://github.com/g0tmi1k/msfpc
 
 Ferramenta Windows PHP Reverse Shell - https://github.com/Dhayalanb/windows-php-reverse-shell
 
@@ -230,14 +238,8 @@ Ferramenta AutoNSE - https://github.com/m4ll0k/AutoNSE
 Ferramenta Linux Kernel Exploits - https://github.com/lucyoa/kernel-exploits
 
 Ferramenta BruteX - https://github.com/1N3/BruteX
-Kali:
-Ferramenta Hashcat - https://hashcat.net/hashcat/
-Kali:
-Ferramenta John the Ripper https://www.openwall.com/john/
 
 Ferramenta linprivchecker - https://www.securitysift.com/download/linuxprivchecker.py
-Kali:
-Ferramenta Enum4linux - https://github.com/CiscoCXSecurity/enum4linux
 
 Ferramenta Linux Exploit Suggester - https://github.com/mzet-/linux-exploit-suggester
 
@@ -253,70 +255,6 @@ Ferramenta sudo_killer - https://github.com/TH3xACE/SUDO_KILLER
 
 Ferramenta PTF - https://github.com/trustedsec/ptf
 
-echo -e '=============== ...Inserindo refências para Auditoria ... ==============='
-echo -e '---------------------------------------------------------------------'
-echo -e "Repositorio Kali Linux - https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/"
-echo -e "Ferramenta Metasploit - https://www.metasploit.com/download"
-echo -e "Ferramenta Hydra - https://github.com/vanhauser-thc/thc-hydra"
-echo -e "Ferramenta Nikto - https://cirt.net/Nikto2 - https://github.com/sullo/nikto"
-echo -e "Ferramenta DirSearch - https://github.com/maurosoria/dirsearch"
-echo -e "Ferramenta Ffuf - https://github.com/ffuf/ffuf"
-echo -e "Ferramenta Nuclei - https://github.com/projectdiscovery/nuclei"
-echo -e "Ferramenta OpenVas - https://www.openvas.org/"
-echo -e "Ferramenta Wireshark - https://www.wireshark.org/download.html"
-echo -e "Ferramenta TCPDump - https://www.tcpdump.org/"
-echo -e "Ferramenta Theharvester - https://github.com/laramies/theHarvester"
-echo -e "Ferramenta Responder - https://github.com/SpiderLabs/Responder"
-echo -e "Ferramenta Wappalyzer web - https://github.com/AliasIO/wappalyzer"
-echo -e "Ferramenta FTP lib Python - "
-echo -e "Ferramenta Mysql - https://www.mysql.com/downloads/"
-echo -e "Ferramenta SqlMap - https://sqlmap.org/"
-echo -e "Ferramenta LinEnum - https://github.com/rebootuser/LinEnum"
-echo -e "Ferramenta Thc-IPv6 - https://github.com/vanhauser-thc/thc-ipv6"
-echo -e "Ferramenta AutoRecon - https://github.com/Tib3rius/AutoRecon"
-echo -e "Ferramenta nmapAutomator - https://github.com/21y4d/nmapAutomator"
-echo -e "Ferramenta Reconbot - https://github.com/Apathly/Reconbot"
-echo -e "Ferramenta Raccoon - https://github.com/evyatarmeged/Raccoon"
-echo -e "Ferramenta RustScan - https://github.com/RustScan/RustScan"
-echo -e "Ferramenta BashScan - https://github.com/astryzia/BashScan"
-echo -e "Ferramenta GoBuster - https://github.com/OJ/gobuster"
-echo -e "Ferramenta Recursive GoBuster - https://github.com/epi052/recursive-gobuster"
-echo -e "Ferramenta wfuzz - https://github.com/xmendez/wfuzz"
-echo -e "Ferramenta goWAPT - https://github.com/dzonerzy/goWAPT"
-echo -e "Ferramenta Crackmapexec - https://github.com/byt3bl33d3r/CrackMapExec"
-echo -e "Ferramenta Whatweb - https://github.com/urbanadventurer/WhatWeb"
-echo -e "Ferramenta Bloodhound - https://github.com/BloodHoundAD/BloodHound/releases/tag/4.0.3"
-echo -e "Ferramenta neo4j - https://neo4j.com/download/"
-echo -e "Ferramenta nbtscan - https://github.com/scallywag/nbtscan"
-echo -e "Ferramenta Nikto https://github.com/sullo/nikto"
-echo -e "Ferramenta dirb - https://tools.kali.org/web-applications/dirb"
-echo -e "Ferramenta dirbuster - https://tools.kali.org/web-applications/dirbuster"
-echo -e "Ferramenta feroxbuster - https://github.com/epi052/feroxbuster"
-echo -e "Ferramenta FinalRecon - https://github.com/thewhiteh4t/FinalRecon"
-echo -e "Ferramenta Impacket (SMB, psexec, etc) - https://github.com/SecureAuthCorp/impacket"
-echo -e "Ferramenta updog - https://github.com/sc0tfree/updog"
-echo -e "Ferramenta SecLists - https://github.com/danielmiessler/SecLists"
-echo -e "Ferramenta Reverse Shell Generator - https://github.com/cwinfosec/revshellgen"
-echo -e "Ferramenta Windows Reverse Shell Generator - https://github.com/thosearetheguise/rev"
-echo -e "Ferramenta MSFVenom Payload Creator - https://github.com/g0tmi1k/msfpc"
-echo -e "Ferramenta Windows PHP Reverse Shell - https://github.com/Dhayalanb/windows-php-reverse-shell"
-echo -e "Ferramenta PenTestMonkey Unix PHP Reverse Shell - http://pentestmonkey.net/tools/web-shells/php-reverse-shell"
-echo -e "Ferramenta Windows Kernel Exploits - https://github.com/SecWiki/windows-kernel-exploits"
-echo -e "Ferramenta AutoNSE - https://github.com/m4ll0k/AutoNSE"
-echo -e "Ferramenta Linux Kernel Exploits - https://github.com/lucyoa/kernel-exploits"
-echo -e "Ferramenta BruteX - https://github.com/1N3/BruteX"
-echo -e "Ferramenta Hashcat - https://hashcat.net/hashcat/"
-echo -e "Ferramenta John the Ripper https://www.openwall.com/john/"
-echo -e "Ferramenta LinEnum - https://github.com/rebootuser/LinEnum"
-echo -e "Ferramenta linprivchecker - https://www.securitysift.com/download/linuxprivchecker.py"
-echo -e "Ferramenta Enum4linux - https://github.com/CiscoCXSecurity/enum4linux"
-echo -e "Ferramenta Linux Exploit Suggester - https://github.com/mzet-/linux-exploit-suggester"
-echo -e "Ferramenta Windows Exploit Suggester - https://github.com/bitsadmin/wesng"
-echo -e "Ferramenta Windows Privilege Escalation Awesome Scripts (WinPEAS) - https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS"
-echo -e "Ferramenta Linux Privilege Escalation Awesome Script (LinPEAS) - https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS"
-echo -e "Ferramenta Get GTFOBins - https://github.com/CristinaSolana/ggtfobins"
-echo -e "Ferramenta sudo_killer - https://github.com/TH3xACE/SUDO_KILLER"
-echo -e "Ferramenta PTF - https://github.com/trustedsec/ptf"
 
 echo -e "<p>Elaborado por: Roberto Lima | " >> $LOG
 echo -e "</div></body></html>" >> $LOG
