@@ -138,8 +138,6 @@ Kali:
 Ferramenta Metasploit - https://www.metasploit.com/download
 Kali:
 Ferramenta Hydra - https://github.com/vanhauser-thc/thc-hydra
-
-Ferramenta Nikto - https://cirt.net/Nikto2 - https://github.com/sullo/nikto
 Kali:
 Ferramenta DirSearch - https://github.com/maurosoria/dirsearch
 Kali:
@@ -166,7 +164,7 @@ Kali:
 Ferramenta SqlMap - https://sqlmap.org/
 
 Ferramenta LinEnum - https://github.com/rebootuser/LinEnum
-
+Kali:
 Ferramenta Thc-IPv6 - https://github.com/vanhauser-thc/thc-ipv6
 
 Ferramenta AutoRecon - https://github.com/Tib3rius/AutoRecon
@@ -204,11 +202,11 @@ Kali:
 Ferramenta dirb - https://tools.kali.org/web-applications/dirb
 Kali:
 Ferramenta dirbuster - https://tools.kali.org/web-applications/dirbuster
-
+Kali:
 Ferramenta feroxbuster - https://github.com/epi052/feroxbuster
 
 Ferramenta FinalRecon - https://github.com/thewhiteh4t/FinalRecon
-
+Kali:
 Ferramenta Impacket (SMB, psexec, etc) - https://github.com/SecureAuthCorp/impacket
 
 Ferramenta updog - https://github.com/sc0tfree/updog
@@ -218,7 +216,7 @@ Ferramenta SecLists - https://github.com/danielmiessler/SecLists
 Ferramenta Reverse Shell Generator - https://github.com/cwinfosec/revshellgen
 
 Ferramenta Windows Reverse Shell Generator - https://github.com/thosearetheguise/rev
-
+Kali:
 Ferramenta MSFVenom Payload Creator - https://github.com/g0tmi1k/msfpc
 
 Ferramenta Windows PHP Reverse Shell - https://github.com/Dhayalanb/windows-php-reverse-shell
