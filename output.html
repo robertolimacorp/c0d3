@@ -46,7 +46,7 @@ h1,h2,h3,h4,h5,h6,p{
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
-.links {
+h3 p ul li a {
     text-decoration: none;
     
 
@@ -65,67 +65,92 @@ h1,h2,h3,h4,h5,h6,p{
     </style>
     <nav class="topnav menu-opcoes">
         <ul>
-          <li><a href="#">Projeto</a></li>
-          <li><a href="#">Sobre</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><a href="#projeto">- PROJETO</a></li>
+          <li><a href="#sobre">SOBRE</a></li>
+          <li><a href="#conformidade">CONFORMIDADE</a></li>
+          <li><a href="#referencias">REFERÊNCIAS</a></li>
+          <li><a href="#contato">CONTATO - </a></li>
         </ul>
       </nav>
-     
-    <h1>Ethical Hacking Test</h1>
+     <ul>
+    <h1><i>ETHICAL HACKING TEST</i></h1>
+     </ul>
+     <div id="projeto">
+     <h2>PROJETO</h2>
+    </div>
+     <p>Seguindo a especificação informada pela empresa <b>CLIENTE</b>, os testes de intrusão foram realizados inicialmente na modalidade <i>Black Box</i>, nele a equipe <b>PARCEIRO</b> contou com breve informações sobre os ativos testados.</p>
+     <p>Esta etapa ocorre na modalidade de testes <i>Gray Box,</i> onde a equipe terá algumas informações sobre o ambiente para execução do teste de intrusão.</p>
     <div class="text">
-    <ul class="dados">
+    <div class="dados">
+        <ul>
        <p><strong>Empresa: </strong>ACME Corp</p>
        <p><strong>Usuário: </strong>User</p>
        <p><strong>Hostname: </strong>Kali</p>
        <p><strong>IP: </strong>192.168.10.10</p>
+        </ul>
+    </div>
+    <div id="sobre">
+    <h2>SOBRE</h2>
+    </div>
+    <ul>
+    <h3>Modalidades de Testes</h3>
     </ul>
-    <h2>Modalidades de Testes</h2>
-    <p>Este relatório apresenta as modificacoes efetuadas no sistema operacional para realização do teste de intrusao na modalidade <i>Gray Box.</i></p>
-    <p>Com as descrições deste documento, será possível validar os pontos alterados no sistema com as ferramentas instaladas no ambiente da máquina disponibilizada para execução do teste de intrusão.</p> 
+    <p>Para um melhor entendimento de modalidades aplicadas nos testes, abaixo uma breve explicação sobre <i>White Box, Gray Box</i> e <i>Black Box</i>:</p>
+    <ul>
+    <li><b><i>White Box</i></b> ou testes autenticados, com pleno conhecimento do ativo e tem credenciais fornecidas.</li>
+    <li><b><i>Gray Box</i></b> é o meio termo está entre as duas modalidades anteriores. Se tem conhecimento parcial a respeito do ativo.</li>
+    <li><b><i>Black Box</i></b> ou testes não autenticados, neste caso não se tem informações sobre o ativo ou qualquer tipo de credenciais fornecidas.</li>
+    </ul>
+    <p>Este relatório apresenta as modificacoes efetuadas no sistema operacional para realização do teste de intrusao na modalidade <i>Gray Box</i>, com visão parcial do ambiente proposto para testes</p>
+    <p>Com as descrições deste relatório, será possível efetuar auditoria nos pontos alterados no sistema operacional disponinbilizado para equipe da <b>PARCEIRO</b> com as ferramentas instaladas no ambiente para continuidade e execução do teste de intrusão.</p> 
+    <ul>
     <h3>Etapas de Execução</h3>
+    </ul>
     <p>Ao longo da execução buscaremos por diversas classes de vulnerabilidades que possam comprometer o ambiente ou negócio no geral, automatizando as seguintes etapas;</p>
+    
     <ul> 
     <li>Análise de superfície;</li>
     <li>Busca de ameaças relevantes;</li>
     <li>Coleta de informações;</li>
     <li>Mapeamento e Rastreio de vulnerabilidades;</li>
     <li>Enumeração de serviços;</li>
-<!--<li>Análise de profundidade;</li>
-    <li>Análise de Métodos;</li>
-    <li>Análise de Autorização;</li>
-    <li>Análise e Consumo de Recursos;</li>
-    <li>Intrusão & Exploração.</li>-->
+    <li>...</li>
    </ul>
-
-    <h3>Os controles inseridos são:</h3>
-    <ul>
+   <p>Após a coleta de resultados gerado pelas ferramentas, as demais análises serão efetuadas manualmente.</p>
+   <div id="conformidade">
+   <h2>CONFORMIDADE</h2>
+   </div>
+   <p>Para análise de conformidade na máquina disponinbilizada para execução dos testes, descrevemos a seguir as modificações contempladas durante a instalação automática das ferramentas.</p>
+   <h3>As validações e modificações efetuadas no sistema foram:</h3>
+      
     <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #F7C510;" value=""> Validar conexão de Internet</p>
     <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Validar execução inicial do scritp de instalação de ferramentas do ambiente</p>
     <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Validar existência do repositorio Kali Linux no ambiente /etc/apt/sources.list</p>
     <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Atualização do sistema - Update & Upgrade</p>
-
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
+    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
     
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value=""> Falha de controles </p>
-    <p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #137624;" value=""> Controle instalado com sucesso</p>
-    </ul>
-    <h3>Referências:</h3>
-    <div class="links">
-    <p><strong>Kali Linux</strong></p> 
+    <div id="referencias">
+    <h2>REFERÊNCIAS</h2>
+        </div>
+        <p>A seguir descrevemos as referências para eventuais entendimentos de funcionamento ou aplicabilidade das ferramentas utiliziadas para execução de testes no ambiente.</p>
+    <p><strong> - Kali Linux - </strong></p> 
     <ul>
+    <li><a href="https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/">Respositorio Kali Linux</a></li>
     <li><a href="https://www.metasploit.com/download" target="_blank" rel="nofollow noopener">Ferramenta Metasploit</a> </li>
     <li><a href="https://github.com/vanhauser-thc/thc-hydra" target="_blank" rel="nofollow noopener">Ferramenta Hydra</a></li>
     <li><a href="https://github.com/maurosoria/dirsearch" target="_blank" rel="nofollow noopener">Ferramenta DirSearch</a></li>
@@ -157,8 +182,8 @@ h1,h2,h3,h4,h5,h6,p{
     <li><a href="https://github.com/danielmiessler/SecLists" target="_blank" rel="nofollow noopener">Ferramenta SecLists</a></li>
     <li><a href="https://github.com/g0tmi1k/msfpc" target="_blank" rel="nofollow noopener">Ferramenta MSFVenom Payload Creator</a></li>
     </ul>
-   
-    <p><strong>Ferramentas Alternativas</strong></p>
+       
+    <p><strong> - Ferramentas Alternativas - </strong></p>
     <ul>
     <li><a href="https://github.com/projectdiscovery/nuclei" target="_blank" rel="nofollow noopener">Ferramenta Nuclei</a></li>
     <li><a href="https://github.com/AliasIO/wappalyzer" target="_blank" rel="nofollow noopener">Ferramenta Wappalyzer web</a></li>
@@ -192,6 +217,12 @@ h1,h2,h3,h4,h5,h6,p{
     </ul>
     </div>
 
+    <br>&nbsp;<br>
+    <div id="contato">
+    <h2>CONTATO</h2>
+    <ul>
+    <p>email@email.com</p>
+    </ul>
     </div>
     <br>&nbsp;<br>
 
