@@ -147,8 +147,8 @@ echo -e 'Aguarde alguns instantes...'
 echo -e ''
 echo -e 'Instalando as Ferramentas:'
 sleep 3s
-apt install htop bettercap crackmapexec tcpdump httpie powershell rdesktop unzip nmap proxychains exploitdb metasploit-framework rlwrap python3 python3-pip impacket-scripts jq golang bloodhound burpsuite seclists leafpad enum4linux snmpenum curl feroxbuster nbtscan nikto onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf zip sqlmap responder hydra whatweb neo4j dirbuster hashcat john gobuster dirb enum4linux msfpc --fix-missing -y > $OFF
-pip3 install pypykatz impacket pyftpdlib mysql
+apt install htop bettercap crackmapexec tcpdump httpie powershell rdesktop unzip nmap proxychains exploitdb metasploit-framework rlwrap python3 python3-pip jq golang nc bloodhound burpsuite seclists enum4linux snmpenum curl feroxbuster nbtscan nikto redis-tools smbclient smbmap sipvicious tnscmd10g whatweb wkhtmltopdf zip sqlmap responder hydra whatweb neo4j dirbuster hashcat john gobuster dirb mysql msfpc --fix-missing -y > $OFF
+pip3 install pypykatz impacket pyftpdlib
 sleep 3s
 clear
 echo -e 'Ferramentas instaladas:'
@@ -222,7 +222,7 @@ Ferramenta Externa: Get GTFOBins - https://github.com/CristinaSolana/ggtfobins
 Ferramenta Externa: sudo_killer - https://github.com/TH3xACE/SUDO_KILLER
 Ferramenta Externa: PTF - https://github.com/trustedsec/ptf'
 sleep 12s
-mkdir /tools && /tools
+mkdir /tools && cd /tools
 git clone https://github.com/projectdiscovery/nuclei > $OFF
 git clone https://github.com/AliasIO/wappalyzer > $OFF
 git clone https://github.com/rebootuser/LinEnum > $OFF
