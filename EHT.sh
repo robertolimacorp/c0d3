@@ -147,13 +147,13 @@ echo -e ''
 echo -e ${NC}${WHITE}
 echo -e 'Aguarde alguns instantes...'
 echo -e ''
-echo -e 'Instalando as Ferramentas:'
+echo -e '-- Instalando as Ferramentas:'
 sleep 3s
 apt install htop bettercap crackmapexec tcpdump httpie powershell rdesktop unzip nmap proxychains exploitdb metasploit-framework rlwrap python3 python3-pip jq golang netcat bloodhound burpsuite seclists enum4linux snmpenum curl feroxbuster nbtscan nikto redis-tools smbclient smbmap sipvicious tnscmd10g whatweb wkhtmltopdf zip sqlmap responder hydra whatweb neo4j dirbuster hashcat john gobuster dirb mysql-server msfpc --fix-missing -y > $OFF
 pip3 install pypykatz impacket pyftpdlib
 sleep 3s
 clear
-echo -e 'Ferramentas instaladas:'
+echo -e '- Ferramentas instaladas:'
 echo -e ''
 echo -e '
 Metasploit - https://www.metasploit.com/download
@@ -186,11 +186,12 @@ Enum4linux - https://github.com/CiscoCXSecurity/enum4linux
 Impacket (SMB, psexec, etc) - https://github.com/SecureAuthCorp/impacket
 SecLists - https://github.com/danielmiessler/SecLists
 MSFVenom Payload Creator - https://github.com/g0tmi1k/msfpc'
-
+echo -e ''
+echo -e '- Ferramentas instaladas pelo repositorio:' $OK | tee -a $LOG
 sleep 10s
 clear
 echo -e ''
-echo -e 'Instalando as Ferramentas Externas:'
+echo -e '-- Instalando as Ferramentas Externas:'
 echo -e ''
 echo -e '
 Ferramenta Externa: Nuclei - https://github.com/projectdiscovery/nuclei
@@ -222,40 +223,72 @@ Ferramenta Externa: Linux Privilege Escalation (LinPEAS) - https://github.com/ca
 Ferramenta Externa: Get GTFOBins - https://github.com/CristinaSolana/ggtfobins
 Ferramenta Externa: sudo_killer - https://github.com/TH3xACE/SUDO_KILLER
 Ferramenta Externa: PTF - https://github.com/trustedsec/ptf'
-sleep 12s
-mkdir /tools && cd /tools
+echo -e ''
+sleep 8s
+mkdir -p /opt/tools && cd /opt/tools
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/projectdiscovery/nuclei > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/AliasIO/wappalyzer > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/rebootuser/LinEnum > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/Tib3rius/AutoRecon > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/21y4d/nmapAutomator > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/Apathly/Reconbot > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/evyatarmeged/Raccoon > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/RustScan/RustScan > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/astryzia/BashScan > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/epi052/recursive-gobuster > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/dzonerzy/goWAPT > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/thewhiteh4t/FinalRecon > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/sc0tfree/updog > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/cwinfosec/revshellgen > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/thosearetheguise/rev > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/Dhayalanb/windows-php-reverse-shell > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 #http://pentestmonkey.net/tools/web-shells/php-reverse-shell
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/SecWiki/windows-kernel-exploits > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/m4ll0k/AutoNSE > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/lucyoa/kernel-exploits > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/1N3/BruteX > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 wget https://www.securitysift.com/download/linuxprivchecker.py
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/mzet-/linux-exploit-suggester > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/bitsadmin/wesng > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/CristinaSolana/ggtfobins > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/TH3xACE/SUDO_KILLER > $OFF
+echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/trustedsec/ptf > $OFF
 echo -e ''
-echo -e 'Aplicando as configuracoes das Ferramentas Externas...'
+echo -e '-- Aplicando as configuracoes das Ferramentas Externas...' | tee -a $LOG
 echo -e ''
+echo -e '- Configurado com sucesso' $OK | tee -a $LOG
+echo -e ''
+sleep 3s
 curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoclean.sh | bash&
-echo -e "<p>Elaborado por: Roberto Lima | Renato Borbolla" >> $LOG
-echo -e "</div></body></html>" >> $LOG
-echo -e "Instalacao deste sistema foi realizada em" $DATA  
+echo -e "<p>Elaborado por: Roberto Lima | Renato Borbolla" | tee -a $LOG
+echo -e "</div></body></html>" | tee -a $LOG
+echo -e "Instalacao deste sistema foi realizada em" $DATA  | tee -a $LOG
