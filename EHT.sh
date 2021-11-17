@@ -31,16 +31,16 @@ DATA=`date +"%d%m%Y-%H%M"`
 LOG=/tmp/$HOST-$DATA.txt
 touch $LOG
 #------------------------------------------
-echo -e ${GREEN}"Verificar privilegios necessarios..."${NC}${WHITE}
+echo -e ${GREEN}":: Verificar privilegios necessarios..."${NC}${WHITE}
 echo
 sleep 3s
 #Verificar se o Script executa como Root
 if [ $(id -u) -ne 0 ] ; then
-echo -e " Favor executar com privilegios administrativos" $FAIL | tee -a $LOG
+echo -e " 0> Favor executar com privilegios administrativos" $FAIL | tee -a $LOG
 echo -e ""
 exit
 else
-echo -e "Privilegios administrativos" $OK | tee -a $LOG
+echo -e "--> Privilegios administrativos" $OK | tee -a $LOG
 echo -e ""
 fi
 
@@ -56,34 +56,34 @@ echo -e 'User: '$user | tee -a $LOG
 echo -e 'Hostname: '$hst | tee -a $LOG
 ip=$(echo -e 'IPs:'`ip add |egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}'` | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}')
 echo -e ${NC}${WHITE}"Rede:" ${NC}${RED} $ip ${NC} | tee $LOG
+echo -e ${NC}${GREEN}
 echo -e "-----------------------------------------------------------------------" | tee -a $LOG
-echo -e "-----------------------------------------------------------------------"
 sleep 3s
-echo -e ''${WHITE}
+echo -e ''${NC}${WHITE}
 
 #Atualizar o sistema
-echo -e "Deseja atualizar o sistema Update e Upgrade? Sim ou Não [S/n]"
+echo -e "--> Deseja atualizar o sistema Update e Upgrade? Sim ou Não [S/n]"
 echo -e ""
 read RESP
 if [ "$RESP" = "S" ]; then
-echo -e "Atualizando o sistema" $OK | tee -a $LOG
+echo -e "-- Atualizando o sistema:" $OK | tee -a $LOG
 sleep 3s
 apt clean && apt-get update -y && apt-get upgrade --fix-missing -y
 else
 echo -e ""
-echo -e "Atualizacao cancelada pelo usuario" $FAIL | tee -a $LOG
+echo -e "- Atualizacao cancelada pelo usuario" $FAIL | tee -a $LOG
 sleep 3s
 echo -e ""
 fi
 
 echo -e ""
-echo -e "Verificando a existencia do repositorio Kali na maquina."
+echo -e "--> Verificando a existencia do repositorio Kali na maquina."
 echo -e ""
 sleep 3s
 kali=$(grep "kali" /etc/apt/sources.list)
 if [ "$kali" = "" ]; then
 	echo -e ""
-echo -e "Sem Repositorio" $FAIL
+echo -e "- Sem Repositorio" $FAIL
 sleep 3s
 echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list
 apt clean
@@ -96,13 +96,13 @@ sleep 3s
 apt update -y > $OFF
 rm erro
 echo -e "\n"
-echo -e "Repositorio Adicionado" $OK
+echo -e "- Repositorio Adicionado" $OK
 echo -e ""
 sleep 2s
 else
 apt clean && apt update -y
 echo -e "\n"
-echo -e "Maquina Pronta" $OK
+echo -e "- Maquina Pronta" $OK
 sleep 2s
 fi
 
@@ -147,7 +147,7 @@ echo -e 'Aguarde alguns instantes...'
 echo -e ''
 echo -e 'Instalando as Ferramentas:'
 sleep 3s
-apt install htop bettercap crackmapexec tcpdump httpie powershell rdesktop unzip nmap proxychains exploitdb metasploit-framework rlwrap python3 python3-pip jq golang nc bloodhound burpsuite seclists enum4linux snmpenum curl feroxbuster nbtscan nikto redis-tools smbclient smbmap sipvicious tnscmd10g whatweb wkhtmltopdf zip sqlmap responder hydra whatweb neo4j dirbuster hashcat john gobuster dirb mysql msfpc --fix-missing -y > $OFF
+apt install htop bettercap crackmapexec tcpdump httpie powershell rdesktop unzip nmap proxychains exploitdb metasploit-framework rlwrap python3 python3-pip jq golang netcat bloodhound burpsuite seclists enum4linux snmpenum curl feroxbuster nbtscan nikto redis-tools smbclient smbmap sipvicious tnscmd10g whatweb wkhtmltopdf zip sqlmap responder hydra whatweb neo4j dirbuster hashcat john gobuster dirb mysql-server msfpc --fix-missing -y > $OFF
 pip3 install pypykatz impacket pyftpdlib
 sleep 3s
 clear
@@ -184,7 +184,6 @@ Enum4linux - https://github.com/CiscoCXSecurity/enum4linux
 Impacket (SMB, psexec, etc) - https://github.com/SecureAuthCorp/impacket
 SecLists - https://github.com/danielmiessler/SecLists
 MSFVenom Payload Creator - https://github.com/g0tmi1k/msfpc'
-fi
 
 sleep 10s
 clear
