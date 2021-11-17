@@ -89,7 +89,7 @@ echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/
 apt clean
 apt update -y | tee erro > $OFF
 key=$(cat erro | grep -i "no_pubkey" | head -1 | cut -f 2 -d ":" | cut -f3 -d " ")
-gpg --keyserver pgpkeys.mit.edu --recv-key $key
+gpg --keyserver keyserver.ubuntu.com --recv-keys $key
 gpg -a --export $key | sudo apt-key add -
 apt clean
 sleep 3s
