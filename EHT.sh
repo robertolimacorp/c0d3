@@ -255,7 +255,7 @@ git clone https://github.com/trustedsec/ptf > $OFF
 echo -e ''
 echo -e 'Aplicando as configuracoes das Ferramentas Externas...'
 echo -e ''
-curl https://github.com/robertolimacorp/c0d3/edit/master/autoclean.sh | bash&
+curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoclean.sh | bash&
 echo -e "<p>Elaborado por: Roberto Lima | Renato Borbolla" >> $LOG
 echo -e "</div></body></html>" >> $LOG
 echo -e "Instalacao deste sistema foi realizada em" $DATA  
