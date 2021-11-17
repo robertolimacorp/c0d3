@@ -98,30 +98,37 @@ rm erro
 echo -e "\n"
 echo -e "Repositorio Adicionado" $OK
 echo -e ""
+sleep 2s
 else
 apt clean && apt update -y
 echo -e "\n"
 echo -e "Maquina Pronta" $OK
+sleep 2s
 fi
 
 #Timezone
 echo -e ''
 echo -e "-- Configuracao do Timezone"
+sleep 2s
 echo -e ''
 zone=$(timedatectl status | grep -i "NTP service: n/a")
 if [ "$zone" = "NTP service: n/a" ]; then
 echo -e "Sem servico NTP" $FAIL | tee -a $LOG
+sleep 2s
 else
 echo -e "Servico habilitado" $OK
+sleep 2s
 fi
 
 #Exportar timezone
 echo -e ''
 echo -e "Atualizando o Timezone..."
+sleep 2s
 echo -e ''
 echo -e "Timezone America Sao Paulo" $OK | tee -a $LOG
 timedatectl set-timezone America/Sao_Paulo
 export TZ=America/Sao_Paulo
+sleep 2s
 
 #instalar NTP
 #echo -e "Instalar NTP" $OK | tee  -a $LOG
@@ -132,7 +139,7 @@ export TZ=America/Sao_Paulo
 echo -e ''
 echo -e ${NC}${YELLOW}
 echo -e ''
-echo -e '====== ...Instanlando Arsenal de Ferramentas no Sistema ... ========='
+echo -e '====== ...Instalando Arsenal de Ferramentas no Sistema ... ========='
 echo -e '---------------------------------------------------------------------'
 echo -e ''
 echo -e ${NC}${WHITE}
