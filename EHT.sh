@@ -50,7 +50,6 @@ echo -e '=============== ...Iniciando configuracao do sistema ... ==============
 echo -e ''
 echo -e '--------------- ...Informacoes do host...-------------------------------'${NC}${WHITE}
 echo -e ""
-apt install htop bettercap crackmapexec tcpdump httpie powershell rdesktop unzip nmap proxychains exploitdb metasploit-framework rlwrap python3 python3-pip jq golang nc bloodhound burpsuite seclists enum4linux snmpenum curl feroxbuster nbtscan nikto redis-tools smbclient smbmap sipvicious tnscmd10g whatweb wkhtmltopdf zip sqlmap responder hydra whatweb neo4j dirbuster hashcat john gobuster dirb mysql msfpc --fix-missing -y
 hst=$(uname -n)
 user=$(id)
 sleep 3s
