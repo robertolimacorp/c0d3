@@ -27,9 +27,11 @@ NC='\033[0m'
 OK=`echo -e "["${NC}${GREEN}✔${NC}${WHITE}"]"`
 FAIL=`echo -e "["${NC}${RED}✘${NC}${WHITE}"]"`
 HOST=`hostname`
-DATA=`date +"%d/%m/%Y-%H:%M"`
+DATA=`date +"%d-%m-%Y"`
 LOG=/tmp/$HOST-$DATA.txt
+REDE=network.lst
 touch $LOG
+touch $REDE
 #------------------------------------------
 echo -e ${GREEN}"Verificar privilegios necessarios..."${NC}${WHITE}
 echo
@@ -53,22 +55,29 @@ if [ $chkdt -ge "24112021" ] ; then
 	echo -e ""
 echo -e "-- Encerrando atividades..."
 echo -e ""
-curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoclean.sh | bash&
 sleep 2s
+curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoclean.sh | bash&
 exit
 else
-echo -e '=============== ...Iniciando configuracao do sistema ... ==============='
+echo -e '============== ... Iniciando configuracao do sistema ... ==============='
 fi
 echo -e ''
-echo -e '--------------- ...Informacoes do host...-------------------------------'${NC}${WHITE}
+echo -e '--------------- ...Informacoes do host... ------------------------------'${NC}${WHITE}
 echo -e ""
+dt=$(date +"%d/%m/%Y - %H:%M:%S")
 hst=$(uname -n)
 user=$(id)
 sleep 3s
+echo -e 'Data e Hora de Execucao do Script: '$dt | tee -a $LOG
 echo -e 'User: '$user | tee -a $LOG
 echo -e 'Hostname: '$hst | tee -a $LOG
-ip=$(echo -e 'IPs:'`ip add |egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}'` | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}')
-echo -e ${NC}${WHITE}"Rede:" ${NC}${RED} $ip ${NC} | tee $LOG
+ip=$(ip add |egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}' | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}')
+echo -e ${NC}${WHITE}"Redes identificadas:" ${NC}${RED} | tee -a $LOG
+echo -e $ip >> $LOG
+echo $ip | awk -F' ' '{ print $1 }' | tee -a $REDE
+echo $ip | awk -F' ' '{ print $2 }' | tee -a $REDE
+echo $ip | awk -F' ' '{ print $3 }' | tee -a $REDE
+echo $ip | awk -F' ' '{ print $4 }' | tee -a $REDE
 echo -e ${NC}${GREEN}
 echo -e "-----------------------------------------------------------------------" | tee -a $LOG
 sleep 3s
@@ -299,7 +308,17 @@ echo -e ''
 echo -e '- Configurado com sucesso' $OK | tee -a $LOG
 echo -e ''
 sleep 3s
+echo -e "Elaborado por: Roberto Lima | Renato Borbolla" | tee -a $LOG
+df=$(date +"%d/%m/%Y - %H:%M:%S")
+echo -e "Instalacao deste sistema foi realizada em " $df  | tee -a $LOG
+echo -e ''
+sleep 3s
+echo -e ''
+echo -e '- Fase inicial do pentest iniciando em 5 segundos' $OK | tee -a $LOG
+echo -e ''
+echo -e ''
+sleep 5s
+echo -e ''
 curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoclean.sh | bash&
-echo -e "<p>Elaborado por: Roberto Lima | Renato Borbolla" | tee -a $LOG
-echo -e "</div></body></html>" | tee -a $LOG
-echo -e "Instalacao deste sistema foi realizada em" $DATA  | tee -a $LOG
+curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoteste.sh | bash&
+exit
