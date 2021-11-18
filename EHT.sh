@@ -314,11 +314,14 @@ echo -e "Instalacao deste sistema foi realizada em " $df  | tee -a $LOG
 echo -e ''
 sleep 3s
 echo -e ''
-echo -e '- Fase inicial do pentest iniciando em 5 segundos' $OK | tee -a $LOG
+echo -e '- Fase inicial do pentest iniciando em 5 segundos'
 echo -e ''
 echo -e ''
+curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/installbin.sh | bash&
 sleep 5s
 echo -e ''
+echo -e 'Execute o comando: "pentest-ideal start" para iniciar os testes na rede interna.'
+echo -e ''
+sleep 6s
 curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoclean.sh | bash&
-curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoteste.sh | bash&
 exit
