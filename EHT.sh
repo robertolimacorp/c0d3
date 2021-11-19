@@ -60,7 +60,7 @@ echo -e ""
 echo -e '=============== ... Verificando os Requisitos ... ==============='
 echo -e ''
 chkdt=$(date +"%d%m%Y")
-if [ $chkdt -ge "19112021" ] ; then
+if [ $chkdt -ge "20112021" ] ; then
 echo -e ""
 echo -e "-- Encerrando atividades..."
 echo -e ""
