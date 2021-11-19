@@ -98,13 +98,13 @@ exit
 else
 echo -e ''
 echo -e "Requisitos OK " $OK
-CONTROL='Vericando sistema' 
+CONTROL='Verificando sistema' 
 echo -e $P $CONTROL | tee -a $LOG1 > $OFF
 
 ## Checking user
 echo -e ''
 echo -e "\n${YELLOW}[i]${RESET} Verificar Usuario"
-CONTROL='Vericando Usuário' 
+CONTROL='Verificando Usuário' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
 echo -e "[i] Checking User :" > troubleshoot.log
 if [[ "${EUID}" -ne 0 ]]; then
@@ -130,7 +130,7 @@ sleep 3s
 
 ## VM check
 echo -e "\n${YELLOW}[i]${RESET} Verificar Virtual Machine (VM)"
-CONTROL='Vericando Maquina Virtal' 
+CONTROL='Verificando Maquina Virtal' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
 echo -e "\n[i] Virtual Machine Check :" >> troubleshoot.log
 if (dmidecode | grep -iq vmware); then
@@ -149,7 +149,7 @@ sleep 3s
 
 ## Network interfaces
 echo -e "\n${YELLOW}[i]${RESET} Network Interfaces"
-CONTROL='Vericando Interfaces de rede' 
+CONTROL='Verificando Interfaces de rede' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
 echo -e "\n[i] Network Interfaces :" >> troubleshoot.log
 ifconfig -a | tee -a troubleshoot.log
@@ -158,7 +158,7 @@ sleep 3s
 
 ## Network routes
 echo -e "\n${YELLOW}[i]${RESET} Network Routes"
-CONTROL='Vericando Rotas' 
+CONTROL='Verificando Rotas' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
 echo -e "\n[i] Network Routes :" >> troubleshoot.log
 route -n | tee -a troubleshoot.log
@@ -167,7 +167,7 @@ sleep 3s
 
 ## DNS information
 echo -e "\n${YELLOW}[i]${RESET} DNS Information"
-CONTROL='Vericando Informações DNS' 
+CONTROL='Verificando Informações DNS' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
 echo -e "\n[i] DNS Information :" >> troubleshoot.log
 cat /etc/resolv.conf | tee -a troubleshoot.log
@@ -205,7 +205,7 @@ sleep 3s
 
 ## Checking kernel version
 echo -e "\n${YELLOW}[i]${RESET} Checking Kernel Version"
-CONTROL='Vericando Versão do Kernel' 
+CONTROL='Verificando Versão do Kernel' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
 echo -e "\n[i] Checking Kernel Version :" >> troubleshoot.log
 uname -a | tee -a troubleshoot.log
@@ -217,7 +217,7 @@ sleep 3s
 
 ## Checking OS
 echo -e "\n${YELLOW}[i]${RESET} Checking OS"
-CONTROL='Vericando Sistema Operacional' 
+CONTROL='Verificando Sistema Operacional' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
 echo -e "\n[i] Checking OS :" >> troubleshoot.log
 cat /etc/issue | tee -a troubleshoot.log
