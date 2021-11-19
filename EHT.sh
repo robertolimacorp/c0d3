@@ -176,6 +176,7 @@ CONTROL='IP Externo'
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
 echo -e "\n[i] External IP :" >> troubleshoot.log
 curl -sS -m 20 http://ipinfo.io/ip 2>&1 | tee -a troubleshoot.log
+echo -e "\n
 sleep 3s
 
 
