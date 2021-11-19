@@ -356,7 +356,7 @@ echo -e '====== ...Instalando Arsenal de Ferramentas no Sistema ... ========='
 echo -e '---------------------------------------------------------------------'
 echo -e ''
 echo -e ${NC}${WHITE}
-echo -e 'Aguarde alguns minutos...'
+echo -e 'Aguarde... Tempo de médio de isntalacao é de 20 minutos.'
 echo -e ''
 echo -e '-- Instalando as Ferramentas:'
 sleep 3s
