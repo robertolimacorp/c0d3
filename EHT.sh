@@ -81,6 +81,7 @@ echo -e '-> Script iniciado em' $df
 echo -e ''
 timedatectl set-timezone America/Sao_Paulo
 export TZ=America/Sao_Paulo
+apt clean && apt update > $OFF
 apt-get install ntp -y > $OFF
 apt-get install ntpdate -y > $OFF
 ntpdate pool.ntp.br > $OFF
