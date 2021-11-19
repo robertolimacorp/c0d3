@@ -54,8 +54,8 @@ else
 echo -e "Privilegios administrativos" $OK | tee -a $LOG
 echo -e ''
 fi
-os=$(cat /etc/issue | awk -F " " '{ print $1,$2 }')
-ipe=$(curl ifconfig.me)
+os=$(cat /etc/issue | awk -F " " '{ print $1,$2,$3 }')
+ipe=$(curl -sS -m 20 http://ipinfo.io/ip 2>&1)
 ip=$(ip add |egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}' | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}')
 hst=$(uname -n)
 usr=$(whoami)
