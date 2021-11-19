@@ -356,7 +356,7 @@ echo -e '====== ...Instalando Arsenal de Ferramentas no Sistema ... ========='
 echo -e '---------------------------------------------------------------------'
 echo -e ''
 echo -e ${NC}${WHITE}
-echo -e 'Aguarde... Tempo de médio de instalacao é de 20 minutos.'
+echo -e 'Aguarde... Tempo de médio de instalacao é de 25 minutos.'
 echo -e ''
 echo -e '-- Instalando as Ferramentas:'
 sleep 3s
@@ -638,6 +638,7 @@ echo -e 'Integridade:' $hash
 echo -e '\n'
 # COMECA O PENTEST - RECON
 sleep 6s
+mkdir /opt/result
 file=$(find / -name network.lst > $OFF)
 cp $file /opt/result/
 ip=$(ip add | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}' | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}')
