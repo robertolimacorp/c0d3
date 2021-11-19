@@ -633,7 +633,9 @@ cp /tmp/*.html .
 mv *.html Report.html
 rpt=$(echo "Report.html")
 dir=$(pwd)
+hash=$(md5sum Report.html | awk -F " " '{ print $1 }')
 echo -e 'O relatorio da execucao esta em' $dir/$rpt
+echo -e 'Integridade:' $hash
 echo -e '\n'
 # COMECA O PENTEST - RECON
 sleep 6s
