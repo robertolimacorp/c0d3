@@ -591,8 +591,6 @@ wget http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.
 echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/SecWiki/windows-kernel-exploits > $OFF
 echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
-git clone https://github.com/m4ll0k/AutoNSE > $OFF
-echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/lucyoa/kernel-exploits > $OFF
 echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/1N3/BruteX > $OFF
@@ -640,6 +638,28 @@ echo -e 'Integridade:' $hash
 echo -e '\n'
 # COMECA O PENTEST - RECON
 sleep 6s
+file=$(find / -name network.lst > $OFF)
+cp $file /opt/result/
+ip=$(ip add | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}' | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}')
+NET1=$(echo $ip | awk -F' ' '{ print $1 }')
+NET2=$(echo $ip | awk -F' ' '{ print $2 }')
+NET3=$(echo $ip | awk -F' ' '{ print $3 }')
+NET4=$(echo $ip | awk -F' ' '{ print $4 }')
+sysctl -w net.ipv4.ip_forward=1
+nmap -sS -Pn -sC -sV -O -p- --script=discovery,vuln -iL /opt/result/network.lst -oA /opt/result/Ideal-Scan &
+whatweb -i /opt/result/network.lst -U PENTEST --log-json=/opt/result/ideal.json --no-errors &
+cd /opt/tools/AutoRecon
+sudo apt install seclists curl enum4linux feroxbuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf -y > $OFF
+python3 -m pip install -r requirements.txt > $OFF
+python3 autorecon.py -t /opt/result/network.lst -o /opt/result/AutoRecon &
+crackmapexec smb --shares $NET1 > /opt/result/smbmap&
+crackmapexec smb --shares $NET2 >> /opt/result/smbmap&
+crackmapexec smb --shares $NET3 >> /opt/result/smbmap&
+crackmapexec smb --shares $NET4 >> /opt/result/smbmap&
+nbtscan -r $NET1
+nbtscan -r $NET2
+nbtscan -r $NET3
+nbtscan -r $NET4
 echo -e ''
 curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoclean.sh | bash&
 exit
