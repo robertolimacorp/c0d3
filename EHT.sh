@@ -7,10 +7,10 @@
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 # ID                    Date                    version
-# Roberto.Lima  		2021.11.11              0.1
-# Renato.Borbolla  		2021.11.12              0.2
-# Renato.Borbolla  		2021.11.16              0.3
-# Roberto.Lima  		2021.11.18              0.4
+# Roberto.Lima  		2021.11.11                   0.1
+# Renato.Borbolla  	2021.11.12                   0.2
+# Renato.Borbolla  	2021.11.16                   0.3
+# Roberto.Lima  		2021.11.18                   0.4
 #------------------------------------------------------------------------------
 ###############################################################################
 #set -x       #Descommentar essa linha para ver em modo debug o script
@@ -19,7 +19,6 @@ clear
 #Variaveis globais
 #------------------------------------------
 OFF=/dev/null
-SYS=/etc/sysctl.conf
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -176,7 +175,7 @@ CONTROL='IP Externo'
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
 echo -e "\n[i] External IP :" >> troubleshoot.log
 curl -sS -m 20 http://ipinfo.io/ip 2>&1 | tee -a troubleshoot.log
-echo -e "\n
+echo -e "\n"
 sleep 3s
 
 
