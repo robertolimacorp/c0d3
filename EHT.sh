@@ -656,10 +656,10 @@ crackmapexec smb --shares $NET1 > /opt/result/smbmap&
 crackmapexec smb --shares $NET2 >> /opt/result/smbmap&
 crackmapexec smb --shares $NET3 >> /opt/result/smbmap&
 crackmapexec smb --shares $NET4 >> /opt/result/smbmap&
-nbtscan -r $NET1
-nbtscan -r $NET2
-nbtscan -r $NET3
-nbtscan -r $NET4
+nbtscan -r $NET1 >> /opt/result/nbt&
+nbtscan -r $NET2 >> /opt/result/nbt&
+nbtscan -r $NET3 >> /opt/result/nbt&
+nbtscan -r $NET4 >> /opt/result/nbt&
 echo -e ''
 curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoclean.sh | bash&
 exit
