@@ -652,7 +652,7 @@ cd /opt/tools/AutoRecon
 sudo apt install seclists curl enum4linux feroxbuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf -y > $OFF
 python3 -m pip install -r requirements.txt > $OFF
 python3 autorecon.py -t /opt/result/network.lst -o /opt/result/AutoRecon &
-crackmapexec smb --shares $NET1 > /opt/result/smbmap&
+crackmapexec smb --shares $NET1 >> /opt/result/smbmap&
 crackmapexec smb --shares $NET2 >> /opt/result/smbmap&
 crackmapexec smb --shares $NET3 >> /opt/result/smbmap&
 crackmapexec smb --shares $NET4 >> /opt/result/smbmap&
