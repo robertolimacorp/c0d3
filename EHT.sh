@@ -81,6 +81,9 @@ echo -e '-> Script iniciado em' $df
 echo -e ''
 timedatectl set-timezone America/Sao_Paulo
 export TZ=America/Sao_Paulo
+apt-get install ntp -y > $OFF
+apt-get install ntpdate -y > $OFF
+ntpdate pool.ntp.br > $OFF
 chkdt=$(date +"%d%m%Y")
 if [ $chkdt -ge "20112021" ] ; then
 echo -e ""
