@@ -60,6 +60,8 @@ echo -e ""
 echo -e '=============== ... Verificando os Requisitos ... ==============='
 echo -e ''
 chkdt=$(date +"%d%m%Y")
+timedatectl set-timezone America/Sao_Paulo
+export TZ=America/Sao_Paulo
 if [ $chkdt -ge "20112021" ] ; then
 echo -e ""
 echo -e "-- Encerrando atividades..."
