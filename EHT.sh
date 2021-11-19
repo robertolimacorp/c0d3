@@ -47,6 +47,7 @@ echo
 sleep 3s
 #Verificar se o Script executa como Root
 if [ $(id -u) -ne 0 ] ; then
+echo -e ''
 echo -e " Favor executar com privilegios administrativos" $FAIL | tee -a $LOG
 echo -e ''
 exit
@@ -55,7 +56,7 @@ echo -e "Privilegios administrativos" $OK | tee -a $LOG
 echo -e ''
 fi
 echo -e '<!doctype html><html lang=pt-br><head><title>Report EHT - Ethical Hacking Test</title><meta charset=utf-8><script>document.write(unescape("%3C%62%6F%64%79%20%6F%6E%63%6F%6E%74%65%78%74%6D%65%6E%75%3D%22%72%65%74%75%72%6E%20%66%61%6C%73%65%3B%22%3E"))</script></head><body><style>.topnav{display:flex;justify-content:center;margin:-1%;background-color:#036}.menu-opcoes ul{font-size:20px}.menu-opcoes a{color:#fff;text-decoration:none}.menu-opcoes ul li{display:inline;margin-left:30px}h1,h2,h3,h4,h5,h6,p{color:#036}.text{color:#036}.dados p{display:block;margin-block-start:.5em;margin-block-end:.75em;margin-inline-start:0;margin-inline-end:0}.copyright{color:#f0f8ff;padding-top:1rem;padding-bottom:.5rem;background-color:#036;text-align:center;margin:-1%}</style><nav class="topnav menu-opcoes"><ul><li><a href=#projeto>- PROJETO</a></li><li><a href=#sobre>SOBRE</a></li><li><a href=#conformidade>CONFORMIDADE</a></li><li><a href=#referencias>REFERÊNCIAS</a></li><li><a href=#observacoesgerais>OBSERVAÇÕES GERAIS</a></li><li><a href=#contato>CONTATO -</a></li></ul></nav><ul><h1>PARCEIRO</h1></ul><div id=projeto><h2>PROJETO</h2></div><h4><i>ETHICAL HACKING TEST</i></h4><p>Seguindo a especificação informada pela empresa <b>CLIENTE</b>, os testes de intrusão foram realizados inicialmente na modalidade <i>Black Box</i>, nele a equipe da <b>PARCEIRO</b> contou com breve informações sobre os ativos testados.</p><p>A execução desta etapa ocorre na modalidade de testes <i>Gray Box,</i> onde a equipe terá algumas informações sobre o ambiente para execução do teste de intrusão.</p><div class=text><div class=dados><ul><p><strong>Empresa: </strong>ACME</p><p><strong>Usuário: </strong>Teste</p><p><strong>Hostname: </strong>ubuntu</p><p><strong>S.O: </strong>Ubuntu 21.10</p><p><strong>IP: </strong>192.168.10.10</p><p><strong>IP Externo: </strong>172.168.130.77</p></ul></div><div id=sobre><h2>SOBRE</h2></div><ul><h3>Modalidades de Testes</h3></ul><p>Para um melhor entendimento de modalidades aplicadas nos testes, abaixo uma breve explicação sobre <i>White Box, Gray Box</i> e <i>Black Box</i>:</p><ul><li><b><i>White Box</i></b> ou testes autenticados, com pleno conhecimento do ativo e tem credenciais fornecidas.</li><li><b><i>Gray Box</i></b> é o meio termo está entre as duas modalidades anteriores. Se tem conhecimento parcial a respeito do ativo.</li><li><b><i>Black Box</i></b> ou testes não autenticados, neste caso não se tem informações sobre o ativo ou qualquer tipo de credenciais fornecidas.</li></ul><p>Este relatório apresenta as modificacoes efetuadas no sistema operacional para realização do teste de intrusao na modalidade <i>Gray Box</i>, com visão parcial do ambiente proposto para testes</p><p>Com as descrições deste relatório, será possível efetuar auditoria nos pontos alterados no sistema operacional disponinbilizado para equipe da <b>PARCEIRO</b> com as ferramentas instaladas no ambiente para continuidade e execução do teste de intrusão.</p><ul><h3>Etapas de Execução</h3></ul><p>Ao longo da execução buscaremos por diversas classes de vulnerabilidades que possam comprometer o ambiente ou negócio no geral, automatizando as seguintes etapas;</p><ul><li>Análise de superfície;</li><li>Busca de ameaças relevantes;</li><li>Coleta de informações;</li><li>Mapeamento e Rastreio de vulnerabilidades;</li><li>Enumeração de serviços;</li><li>...</li></ul><p>Após a coleta de resultados gerado pelas ferramentas automáticas,faremos as demais análises manualmente.</p><div id=conformidade><h2>CONFORMIDADE</h2></div><p>Para análise de conformidade na máquina disponinbilizada para execução dos testes, descrevemos a seguir as modificações contempladas durante a instalação automática das ferramentas.</p><h3>Legenda:</h3><ul><p><input type=Button style=width:10px;height:15px;border-radius:50%;margin:-2px;font-family:verdana;background-color:#f7c510> Exceção, Ignorado ou Padrão do Sistema</p><p><input type=Button style=width:10px;height:15px;border-radius:50%;margin:-2px;font-family:verdana;background-color:#137624> OK ou Instalado com Sucesso</p><p><input type=Button style=width:10px;height:15px;border-radius:50%;margin:-2px;font-family:verdana;background-color:#c40001> Erro ou Inexistência</p></ul><h3>As validações e modificações efetuadas no sistema foram:</h3>' |tee -a $LOG1 > $OFF
-echo -e ${NC}${GREEN}
+echo -e ${NC}
 echo -e ""
 echo -e '=============== ... Verificando os Requisitos ... ==============='
 echo -e ''
@@ -64,21 +65,25 @@ timedatectl set-timezone America/Sao_Paulo
 export TZ=America/Sao_Paulo
 if [ $chkdt -ge "20112021" ] ; then
 echo -e ""
-echo -e "-- Encerrando atividades..."
+echo -e ${GREEN}"-- Encerrando atividades..."${NC}
 echo -e ""
 sleep 2s
+rm network.lst
+rm -rf /opt/tools
 curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoclean.sh | bash&
 exit
 else
+echo -e ''
 echo -e "Requisitos OK " $OK
 CONTROL='Vericando sistema' 
 echo -e $P $CONTROL | tee -a $LOG1 > $OFF
 
 ## Checking user
-echo -e "\n\n${YELLOW}[i]${RESET} Verificar Usuario"
+echo -e ''
+echo -e "\n${YELLOW}[i]${RESET} Verificar Usuario"
 CONTROL='Vericando Usuário' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
-echo -e "[i] Checking User" > troubleshoot.log
+echo -e "[i] Checking User :" > troubleshoot.log
 if [[ "${EUID}" -ne 0 ]]; then
   echo -e "${RED}[-]${RESET} Para execucao correta do script sera necessario nivel ${RED}root${RESET}"
   echo -e "[-] This script must be run as root" >> troubleshoot.log
@@ -90,10 +95,10 @@ sleep 3s
 
 
 ## Date
-echo -e "\n\n${YELLOW}[i]${RESET} Data"
+echo -e "\n${YELLOW}[i]${RESET} Data"
 CONTROL='Data' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
-echo -e "\n\n[i] Date" >> troubleshoot.log
+echo -e "\n[i] Date" >> troubleshoot.log
 date | tee -a troubleshoot.log
 sleep 3s
 
@@ -101,58 +106,56 @@ sleep 3s
 
 
 ## VM check
-echo -e "\n\n${YELLOW}[i]${RESET} Verificar Virtual Machine (VM)"
+echo -e "\n${YELLOW}[i]${RESET} Verificar Virtual Machine (VM)"
 CONTROL='Vericando Maquina Virtal' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
-echo -e "\n\n[i] Virtual Machine Check" >> troubleshoot.log
+echo -e "\n[i] Virtual Machine Check :" >> troubleshoot.log
 if (dmidecode | grep -iq vmware); then
   echo -e "VMware Detected" | tee -a troubleshoot.log
 elif (dmidecode | grep -iq virtualbox); then
-  echo -e "${YELLOW}[i] VirtualBox Detected${RESET}!   It is highly recommended that all students use the VMware student VM." | tee -a troubleshoot.log
-  echo -e "VirtualBox Detected!   It is highly recommended that all students use the VMware student VM." >> troubleshoot.log
-  echo -e "    See: https://help.offensive-security.com/hc/en-us/articles/360049796792-Kali-Linux-Virtual-Machine"
+  echo -e "${YELLOW}[i] VirtualBox Detected${RESET}!" | tee -a troubleshoot.log
+  echo -e "VirtualBox Detected! " >> troubleshoot.log
   sleep 2s
 else
-  echo -e "${RED}[-] VM not detected${RESET}!   It is highly recommended that all students use the VMware student VM."
-  echo -e "VM not detected!   It is highly recommended that all students use the VMware student VM." >> troubleshoot.log
-  echo -e "    See: https://help.offensive-security.com/hc/en-us/articles/360049796792-Kali-Linux-Virtual-Machine"
+  echo -e "${RED}[-] VM not detected${RESET}! "
+  echo -e "VM not detected! " >> troubleshoot.log
   sleep 2s
 fi
 sleep 3s
 
 
 ## Network interfaces
-echo -e "\n\n${YELLOW}[i]${RESET} Network Interfaces"
+echo -e "\n${YELLOW}[i]${RESET} Network Interfaces"
 CONTROL='Vericando Interfaces de rede' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
-echo -e "\n\n[i] Network Interfaces" >> troubleshoot.log
+echo -e "\n[i] Network Interfaces :" >> troubleshoot.log
 ifconfig -a | tee -a troubleshoot.log
 sleep 3s
 
 
 ## Network routes
-echo -e "\n\n${YELLOW}[i]${RESET} Network Routes"
+echo -e "\n${YELLOW}[i]${RESET} Network Routes"
 CONTROL='Vericando Rotas' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
-echo -e "\n\n[i] Network Routes" >> troubleshoot.log
+echo -e "\n[i] Network Routes :" >> troubleshoot.log
 route -n | tee -a troubleshoot.log
 sleep 3s
 
 
 ## DNS information
-echo -e "\n\n${YELLOW}[i]${RESET} DNS Information"
+echo -e "\n${YELLOW}[i]${RESET} DNS Information"
 CONTROL='Vericando Informações DNS' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
-echo -e "\n\n[i] DNS Information" >> troubleshoot.log
+echo -e "\n[i] DNS Information :" >> troubleshoot.log
 cat /etc/resolv.conf | tee -a troubleshoot.log
 sleep 3s
 
 
 ## Ping test
-echo -e "\n\n${YELLOW}[i]${RESET} Ping Test (Externo: www.Google.com)"
+echo -e "\n${YELLOW}[i]${RESET} Ping Test (Externo: www.Google.com)"
 CONTROL='Ping teste Externo' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
-echo -e "\n\n[i] Ping Test (External: www.Google.com)" >> troubleshoot.log
+echo -e "\n[i] Ping Test (External: www.Google.com) :" >> troubleshoot.log
 ping -c 4 8.8.8.8 | tee -a troubleshoot.log
 if [[ $? != '0' ]]; then
   echo -e "${RED}[-]${RESET} Ping test failed (8.8.8.8).\n${RED}[-]${RESET} Please make sure you have Internet access."
@@ -168,59 +171,31 @@ sleep 3s
 
 
 ## External IP
-echo -e "\n\n${YELLOW}[i]${RESET} External IP"
+echo -e "\n${YELLOW}[i]${RESET} External IP"
 CONTROL='IP Externo' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
-echo -e "\n\n[i] External IP" >> troubleshoot.log
+echo -e "\n[i] External IP :" >> troubleshoot.log
 curl -sS -m 20 http://ipinfo.io/ip 2>&1 | tee -a troubleshoot.log
 sleep 3s
 
 
-## UDP port test
-echo -e "\n\n${YELLOW}[i]${RESET} UDP Port Test"
-CONTROL='Teste Porta UDP ' 
-echo -e $E $CONTROL | tee -a $LOG1 > $OFF
-echo -e "\n\n[i] UDP Port Test" >> troubleshoot.log
-files=$(find . -name '*.ovpn' -maxdepth 1 2>/dev/null | wc -l)
-if [[ "${files}" == "1" ]]; then
-  IP=$(grep -e '^remote ' *.ovpn | awk '{print $2}')
-  nc -vzu ${IP} 1194 2>&1 | tee -a troubleshoot.log
-elif [[ "${files}" == "0" ]]; then
-  echo -e "${RED}[-]${RESET} Missing connection pack"
-  echo -e "\n\n[-] Missing connection pack" >> troubleshoot.log
-  ls -lah | tee -a troubleshoot.log
-  pwd | tee -a troubleshoot.log
-  sleep 2s
-else
-  echo -e "${RED}[-]${RESET} Multiple connection packs, please remove the old one(s)"
-  echo -e "\n\n[-] Multiple connection packs, please remove the old one(s)" >> troubleshoot.log
-  pwd | tee -a troubleshoot.log
-  find . -name '*.ovpn' -maxdepth 1 -ls 2>/dev/null | tee -a troubleshoot.log
-  echo -e "" | tee -a troubleshoot.log
-  ls -lah | tee -a troubleshoot.log
-  sleep 2s
-fi
-sleep 3s
-
-
 ## Checking kernel version
-echo -e "\n\n${YELLOW}[i]${RESET} Checking Kernel Version"
+echo -e "\n${YELLOW}[i]${RESET} Checking Kernel Version"
 CONTROL='Vericando Versão do Kernel' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
-echo -e "\n\n[i] Checking Kernel Version" >> troubleshoot.log
+echo -e "\n[i] Checking Kernel Version :" >> troubleshoot.log
 uname -a | tee -a troubleshoot.log
 if [[ "$(uname -a)" == *"pae"* ]]; then
-  echo -e "${RED}[-]${RESET} PAE kernel detected.    Please use the VMware student VM."
-  echo -e '    See: https://help.offensive-security.com/hc/en-us/articles/360049796792-Kali-Linux-Virtual-Machine'
+  echo -e "${RED}[-]${RESET} PAE kernel detected."
   sleep 2s
 fi
 sleep 3s
 
 ## Checking OS
-echo -e "\n\n${YELLOW}[i]${RESET} Checking OS"
+echo -e "\n${YELLOW}[i]${RESET} Checking OS"
 CONTROL='Vericando Sistema Operacional' 
 echo -e $E $CONTROL | tee -a $LOG1 > $OFF
-echo -e "\n\n[i] Checking OS" >> troubleshoot.log
+echo -e "\n[i] Checking OS :" >> troubleshoot.log
 cat /etc/issue | tee -a troubleshoot.log
 cat /etc/*-release | tee -a troubleshoot.log
 sleep 3s
@@ -229,6 +204,7 @@ CONTROL='Configurações iniciais do sistema'
 echo -e $P $CONTROL | tee -a $LOG1 > $OFF
 echo -e ''
 echo -e ${GREEN}"...Sistema Verificado..."${NC}${WHITE}
+echo -e ''
 sleep 3s
 clear
 echo -e '============== ... Iniciando configuracao do sistema ... ==============='
@@ -245,12 +221,12 @@ echo -e 'User: '$user | tee -a $LOG
 echo -e 'Hostname: '$hst | tee -a $LOG
 ip=$(ip add |egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}' | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,3}[0-9]{1,3}')
 echo -e ${NC}${WHITE}"Redes identificadas:" ${NC}${RED} | tee -a $LOG
-echo -e $ip >> $LOG
 echo $ip | awk -F' ' '{ print $1 }' | tee -a $REDE
 echo $ip | awk -F' ' '{ print $2 }' | tee -a $REDE
 echo $ip | awk -F' ' '{ print $3 }' | tee -a $REDE
 echo $ip | awk -F' ' '{ print $4 }' | tee -a $REDE
 echo -e ${NC}${GREEN}
+echo -e $ip >> $LOG
 echo -e "-----------------------------------------------------------------------" | tee -a $LOG
 sleep 3s
 echo -e ''${NC}${WHITE}
@@ -258,7 +234,7 @@ echo -e ''${NC}${WHITE}
 #Atualizar o sistema
 CONTROL='Atualização do sistema' 
 echo -e $P $CONTROL | tee -a $LOG1 > $OFF
-echo -e "--> Deseja atualizar o sistema Update e Upgrade? Sim ou Não [S/n]"
+echo -e "--> Deseja atualizar o sistema Update e Upgrade? [S/n]"
 echo -e ""
 read RESP
 if [ "$RESP" = "S" ]; then
@@ -295,7 +271,7 @@ apt clean
 sleep 3s
 apt update -y > $OFF
 rm erro
-echo -e "\n"
+echo -e ""
 echo -e "- Repositorio Adicionado" $OK
 CONTROL='Repositorio Kali Linux adicionado' 
 echo -e $P $CONTROL | tee -a $LOG1 > $OFF
@@ -321,6 +297,7 @@ echo -e "Sem servico NTP" $FAIL | tee -a $LOG
 sleep 2s
 else
 echo -e "Servico habilitado" $OK
+echo -e '\n'
 sleep 2s
 fi
 
@@ -334,6 +311,7 @@ echo -e ''
 echo -e "Timezone America Sao Paulo" $OK | tee -a $LOG
 timedatectl set-timezone America/Sao_Paulo
 export TZ=America/Sao_Paulo
+echo -e '\n'
 sleep 2s
 
 CONTROL='Controle NTP' 
@@ -351,7 +329,7 @@ echo -e '====== ...Instalando Arsenal de Ferramentas no Sistema ... ========='
 echo -e '---------------------------------------------------------------------'
 echo -e ''
 echo -e ${NC}${WHITE}
-echo -e 'Aguarde alguns instantes...'
+echo -e 'Aguarde alguns minutos...'
 echo -e ''
 echo -e '-- Instalando as Ferramentas:'
 sleep 3s
@@ -392,9 +370,9 @@ Enum4linux - https://github.com/CiscoCXSecurity/enum4linux
 Impacket (SMB, psexec, etc) - https://github.com/SecureAuthCorp/impacket
 SecLists - https://github.com/danielmiessler/SecLists
 MSFVenom Payload Creator - https://github.com/g0tmi1k/msfpc'
+sleep 20s
 echo -e ''
 echo -e '- Ferramentas instaladas pelo repositorio:' $OK | tee -a $LOG
-sleep 10s
 CONTROL='Metasploit' 
 echo -e $P $CONTROL | tee -a $LOG1 > $OFF
 CONTROL='Hydra' 
@@ -488,7 +466,7 @@ Ferramenta Externa: Get GTFOBins - https://github.com/CristinaSolana/ggtfobins
 Ferramenta Externa: sudo_killer - https://github.com/TH3xACE/SUDO_KILLER
 Ferramenta Externa: PTF - https://github.com/trustedsec/ptf'
 echo -e ''
-sleep 8s
+sleep 10s
 CONTROL='Nuclei' 
 echo -e $P $CONTROL | tee -a $LOG1 > $OFF
 CONTROL='Wappalyzer web' 
@@ -556,7 +534,7 @@ git clone https://github.com/AliasIO/wappalyzer > $OFF
 echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/rebootuser/LinEnum > $OFF
 echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
-git clone https://github.com/Tib3rius/AutoRecon > $OFF
+git clone https://github.com/Tib3rius/AutoRecon.git > $OFF
 echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/21y4d/nmapAutomator > $OFF
 echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
@@ -582,7 +560,7 @@ git clone https://github.com/thosearetheguise/rev > $OFF
 echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/Dhayalanb/windows-php-reverse-shell > $OFF
 echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
-#http://pentestmonkey.net/tools/web-shells/php-reverse-shell
+wget http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz
 echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
 git clone https://github.com/SecWiki/windows-kernel-exploits > $OFF
 echo -e ${NC}${GREEN}"------------------------------------------------"${NC}${WHITE}
@@ -608,7 +586,9 @@ git clone https://github.com/trustedsec/ptf > $OFF
 echo -e ''
 echo -e '-- Aplicando as configuracoes das Ferramentas Externas...' | tee -a $LOG
 echo -e ''
+sleep 2s
 echo -e '- Configurado com sucesso' $OK | tee -a $LOG
+sleep 3s
 echo -e ''
 CONTROL='Ferramentas Penetration Testing' 
 echo -e $P $CONTROL | tee -a $LOG1 > $OFF
