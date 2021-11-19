@@ -31,6 +31,7 @@ DATA=`date +"%d-%m-%Y"`
 LOG=/tmp/$HOST-$DATA.txt
 LOG1=/tmp/$HOST-$DATA.html
 REDE=network.lst
+df=$(date +"%d/%m/%Y - %H:%M:%S")
 touch $LOG
 touch $LOG1
 touch $REDE
@@ -75,6 +76,8 @@ echo -e '<!doctype html><html lang=pt-br><head><title>Report EHT - Ethical Hacki
 echo -e ${NC}
 echo -e ""
 echo -e '=============== ... Verificando os Requisitos ... ==============='
+echo -e ''
+echo -e '-> Script iniciado em' $df
 echo -e ''
 timedatectl set-timezone America/Sao_Paulo
 export TZ=America/Sao_Paulo
