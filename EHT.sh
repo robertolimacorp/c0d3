@@ -86,7 +86,7 @@ apt-get install ntp -y > $OFF
 apt-get install ntpdate -y > $OFF
 ntpdate pool.ntp.br > $OFF
 chkdt=$(date +"%d%m%Y")
-if [ $chkdt -ge "20112021" ] ; then
+if [ $chkdt -ge "22112021" ] ; then
 echo -e ""
 echo -e ${GREEN}"-- Encerrando atividades..."${NC}
 echo -e ""
