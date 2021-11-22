@@ -115,7 +115,11 @@ apt-get install net-tools > $OFF
 apt-get install which > $OFF
 
 #criando usuário de testes
-useradd pentest "Admin@pentest2021!"
+username=pentest
+password=Admin@pentest2021!
+
+adduser --gecos "" --disabled-password $username
+chpasswd <<<"$username:$password"
 usermod -aG sudo pentest
 usermod -aG root pentest
 ## Checking user
