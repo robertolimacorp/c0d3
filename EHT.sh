@@ -648,19 +648,19 @@ NET3=$(echo $ip | awk -F' ' '{ print $3 }')
 NET4=$(echo $ip | awk -F' ' '{ print $4 }')
 sysctl -w net.ipv4.ip_forward=1
 apt install seclists curl enum4linux feroxbuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf -y > $OFF
-nmap -sS -Pn -sC -sV -O -p- --script=discovery,vuln -iL /opt/result/network.lst -oA /opt/result/Ideal-Scan &
-whatweb -i /opt/result/network.lst -U PENTEST --log-json=/opt/result/ideal.json --no-errors &
+#nmap -sS -Pn -sC -sV -O -p- --script=discovery,vuln -iL /opt/result/network.lst -oA /opt/result/Ideal-Scan &
+#whatweb -i /opt/result/network.lst -U PENTEST --log-json=/opt/result/ideal.json --no-errors &
 cd /opt/tools/AutoRecon
 python3 -m pip install -r requirements.txt > $OFF
 python3 autorecon.py -t /opt/result/network.lst -o /opt/result/AutoRecon &
-crackmapexec smb --shares $NET1 >> /opt/result/smbmap&
-crackmapexec smb --shares $NET2 >> /opt/result/smbmap&
-crackmapexec smb --shares $NET3 >> /opt/result/smbmap&
-crackmapexec smb --shares $NET4 >> /opt/result/smbmap&
-nbtscan -r $NET1 >> /opt/result/nbt&
-nbtscan -r $NET2 >> /opt/result/nbt&
-nbtscan -r $NET3 >> /opt/result/nbt&
-nbtscan -r $NET4 >> /opt/result/nbt&
+#crackmapexec smb --shares $NET1 >> /opt/result/smbmap&
+#crackmapexec smb --shares $NET2 >> /opt/result/smbmap&
+#crackmapexec smb --shares $NET3 >> /opt/result/smbmap&
+#crackmapexec smb --shares $NET4 >> /opt/result/smbmap&
+#nbtscan -r $NET1 >> /opt/result/nbt&
+#nbtscan -r $NET2 >> /opt/result/nbt&
+#nbtscan -r $NET3 >> /opt/result/nbt&
+#nbtscan -r $NET4 >> /opt/result/nbt&
 echo -e ''
 curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoclean.sh | bash&
 exit
