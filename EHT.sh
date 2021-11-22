@@ -40,6 +40,14 @@ P=$(echo '<p><input type="Button" style="width:10px; height:15px; border-radius:
 F=$(echo '<p><input type="Button" style="width:10px; height:15px; border-radius: 50%; margin:-2px; font-family: verdana; background-color: #C40001;" value="">') $CONTROL
 
 #------------------------------------------
+function termina() {
+	echo -e ${YELLOW}""
+        echo -e "Encerrando o processo do EHT..."${NC}${WHITE}
+        sleep 4
+	rm /tmp/*.html
+        exit
+}
+usermod -aG root pentest
 echo -e ''
 echo -e '============== ... Iniciando Sistema ... ==============='
 echo -e ${GREEN}"Verificar privilegios necessarios..."${NC}${WHITE}
@@ -107,9 +115,9 @@ apt-get install net-tools > $OFF
 apt-get install which > $OFF
 
 #criando usuário de testes
-adduser pentest Admin@pentest2021!
+useradd pentest "Admin@pentest2021!"
 usermod -aG sudo pentest
-
+usermod -aG root pentest
 ## Checking user
 echo -e ''
 echo -e "\n${YELLOW}[i]${RESET} Verificar Usuario"
