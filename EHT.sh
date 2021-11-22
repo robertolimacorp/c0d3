@@ -86,20 +86,26 @@ apt-get install ntp -y > $OFF
 apt-get install ntpdate -y > $OFF
 ntpdate pool.ntp.br > $OFF
 chkdt=$(date +"%d%m%Y")
-if [ $chkdt -ge "22112021" ] ; then
+if [ $chkdt -ge "24112021" ] ; then
 echo -e ""
 echo -e ${GREEN}"-- Encerrando atividades..."${NC}
 echo -e ""
 sleep 2s
 rm network.lst
 rm -rf /opt/tools
-curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoclean.sh | bash&
+curl -fsSL https://raw.githubusercontent.com/socontateste/script/main/autoclean.sh | bash&
 exit
 else
 echo -e ''
 echo -e "Requisitos OK " $OK
 CONTROL='Verificando sistema' 
 echo -e $P $CONTROL | tee -a $LOG1 > $OFF
+
+#Pré-requisitos
+apt-get install curl > $OFF
+apt-get install net-tools > $OFF
+apt-get install which > $OFF
+
 
 ## Checking user
 echo -e ''
@@ -626,7 +632,7 @@ echo -e "Instalacao deste sistema foi realizada em " $df  | tee -a $LOG
 echo -e ''
 sleep 3s
 echo -e ''
-echo -e '- Fase inicial do pentest iniciando em 5 segundos'
+#echo -e '- Fase inicial do pentest iniciando em 5 segundos'
 echo -e ''
 cp /tmp/*.html .
 mv *.html Report.html
@@ -662,5 +668,5 @@ python3 autorecon.py -t /opt/result/network.lst -o /opt/result/AutoRecon &
 #nbtscan -r $NET3 >> /opt/result/nbt&
 #nbtscan -r $NET4 >> /opt/result/nbt&
 echo -e ''
-curl -fsSL https://raw.githubusercontent.com/robertolimacorp/c0d3/master/autoclean.sh | bash&
+curl -fsSL https://raw.githubusercontent.com/socontateste/script/main/autoclean.sh | bash&
 exit
